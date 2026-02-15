@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://byq2wbk5ft35p"]
+
+[ext_resource type="Script" uid="uid://bj7tdhj7qpeba" path="res://scripts/detector.gd" id="1_edrlx"]
+[ext_resource type="AudioStream" uid="uid://dxv6kbvcy7mab" path="res://assets/sounds/detector_bip.ogg" id="2_5rtne"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_5rtne"]
+
+[node name="Detector" type="Node3D" unique_id=450831766]
+script = ExtResource("1_edrlx")
+
+[node name="DetectionArea" type="Area3D" parent="." unique_id=742740531]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DetectionArea" unique_id=2061206083]
+shape = SubResource("SphereShape3D_5rtne")
+
+[node name="BipSound" type="AudioStreamPlayer" parent="." unique_id=1547289749]
+stream = ExtResource("2_5rtne")

@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://byntskyhntcco"]
+
+[ext_resource type="Script" uid="uid://r1q7sq5t7axg" path="res://scripts/shelter.gd" id="1_en2vt"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5f7xy"]
+albedo_color = Color(0.30066758, 0.5157032, 0.20722434, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5f7xy"]
+size = Vector3(2, 2, 2)
+
+[node name="Shelter" type="Node3D" unique_id=1978965594]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1910990775]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.049999997, 0)
+size = Vector3(2, 0.1, 2)
+material = SubResource("StandardMaterial3D_5f7xy")
+
+[node name="Shelter_Area3D" type="Area3D" parent="." unique_id=850404894]
+script = ExtResource("1_en2vt")
+
+[node name="Shelter_CollisionShape3D" type="CollisionShape3D" parent="Shelter_Area3D" unique_id=716649761]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("BoxShape3D_5f7xy")
