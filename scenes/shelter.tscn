@@ -318,7 +318,7 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_b6scm")
 
-[node name="Shelter" type="Node3D" unique_id=1978965594]
+[node name="Shelter" type="Node3D" unique_id=1978965594 groups=["shelter"]]
 
 [node name="Shelter_Area3D" type="Area3D" parent="." unique_id=850404894]
 script = ExtResource("1_en2vt")
@@ -361,3 +361,6 @@ mesh = SubResource("ArrayMesh_wprpo")
 
 [node name="Grinder" parent="." unique_id=293299376 instance=ExtResource("6_u3ehf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.16146, 0, -5.206647)
+
+[node name="SpawnPoint" type="Marker3D" parent="." unique_id=1302489562]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5133617, 1.1595709, -2.0956597)

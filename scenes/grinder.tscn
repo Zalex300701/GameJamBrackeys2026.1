@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://cvlrp211yb7qp"]
 
 [ext_resource type="Texture2D" uid="uid://bb1ib7sbv2t8n" path="res://assets/models/props/grinder_shelter_texture.png" id="1_2qwer"]
-[ext_resource type="Script" uid="uid://dsvl3to086ghs" path="res://scripts/grinder.gd" id="1_e1d6b"]
+[ext_resource type="Script" path="res://scripts/grinder.gd" id="1_e1d6b"]
 [ext_resource type="Texture2D" uid="uid://cgahqjioo3la" path="res://assets/models/props/grinder_rollers_texture.png" id="2_e1d6b"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_0nu6o"]

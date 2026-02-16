@@ -5,6 +5,7 @@ const BIP_MAX_INTERVAL: float = 0.005
 
 var bip_timer: float = 0.0
 var nearest_treasure = null
+var dig_range: float = 2.0
 
 @onready var bip_sound = $BipSound
 
@@ -14,14 +15,14 @@ func _process(delta):
 
 func _scan():
 	var treasures = get_tree().get_nodes_in_group("treasure")
-	#print("Trésors trouvés : ", treasures.size())
+	print("Trésors trouvés : ", treasures.size())
 	var nearest = null
 	var min_dist = 10.0
 	for t in treasures:
 		if t.is_collected:
 			continue
 		var d = global_position.distance_to(t.global_position)
-		#print("Distance brute : ", d)
+		print("Distance brute : ", d)
 		if d < min_dist:
 			min_dist = d
 			nearest = t
@@ -43,6 +44,6 @@ func get_diggable_target() -> Node:
 		print("Distance au trésor : ", global_position.distance_to(nearest_treasure.global_position))
 	else:
 		print("Aucun trésor détecté")
-	if nearest_treasure and global_position.distance_to(nearest_treasure.global_position) < 1.5:
+	if nearest_treasure and global_position.distance_to(nearest_treasure.global_position) < dig_range:
 		return nearest_treasure
 	return null
