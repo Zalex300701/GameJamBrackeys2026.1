@@ -17,7 +17,9 @@ var gravity = 9.8
 @onready var head: Node3D = $Player_Head
 @onready var camera: Camera3D = $Player_Head/Player_Camera3D
 
+@onready var pause_menu := $PauseMenu
 @onready var hud = get_tree().get_first_node_in_group("hud")
+var inventory_items = {}
 
 # Oxygen Module
 var oxygen: float = 100.0
@@ -26,7 +28,6 @@ const OXYGEN_DRAIN = 1.5
 const OXYGEN_REGEN = 20.0
 
 # Detector
-
 @onready var detector = $Detector
 var dig_cooldown: float = 0.0
 const DIG_COOLDOWN: float = 0.3
@@ -40,6 +41,9 @@ func _unhandled_input(event):
 		head.rotate_y(-event.relative.x * SENSITIVITY)
 		camera.rotate_x(-event.relative.y * SENSITIVITY)
 		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-80), deg_to_rad(80))
+	if event.is_action_pressed("ui_cancel"):
+		pause_menu.toggle()
+		get_viewport().set_input_as_handled()
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -102,4 +106,27 @@ func _handle_digging(delta):
 		if target:
 			target.receive_dig()
 			dig_cooldown = DIG_COOLDOWN
-			hud.show_dig_progress(float(target.digs_done) / float(target.digs_required))
+
+func add_inventory_item(treasure: TreasureData):
+	if inventory_items.has(treasure.treasure_name):
+		var entry = inventory_items[treasure.treasure_name]
+		entry.count += 1
+		entry.label.text = treasure.treasure_name + " x" + str(entry.count)
+	else:
+		var item = HBoxContainer.new()
+		
+		var icon = TextureRect.new()
+		icon.texture = treasure.icon
+		icon.custom_minimum_size = Vector2(32, 32)
+		item.add_child(icon)
+		
+		var label = Label.new()
+		label.text = treasure.treasure_name
+		item.add_child(label)
+		
+		hud.add_to_list(item)
+		inventory_items[treasure.treasure_name] = {
+			"hbox": item,
+			"label": label,
+			"count": 1
+		}

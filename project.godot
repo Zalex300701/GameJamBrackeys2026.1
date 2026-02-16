@@ -25,6 +25,7 @@ window/vsync/vsync_mode=2
 
 folder_colors={
 "res://assets/": "orange",
+"res://data/": "blue",
 "res://scenes/": "teal",
 "res://scripts/": "pink"
 }

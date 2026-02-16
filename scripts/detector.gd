@@ -1,7 +1,7 @@
 extends Node3D
 
 const BIP_MIN_INTERVAL: float = 2.0
-const BIP_MAX_INTERVAL: float = 0.1
+const BIP_MAX_INTERVAL: float = 0.005
 
 var bip_timer: float = 0.0
 var nearest_treasure = null

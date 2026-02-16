@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="TreasureData" format=3 uid="uid://6t7w7qpoobte"]
+
+[ext_resource type="Texture2D" uid="uid://d34hbep58wep1" path="res://assets/models/treasures/cube_Texture_cube.png" id="1_4c7ga"]
+[ext_resource type="Script" uid="uid://bl4wsg8gsbb6e" path="res://scripts/treasure_data.gd" id="1_i4acw"]
+[ext_resource type="PackedScene" uid="uid://c72usuudc4hdt" path="res://assets/models/treasures/cube.glb" id="2_74in7"]
+
+[resource]
+script = ExtResource("1_i4acw")
+treasure_name = "Cube"
+description = "This is just a cube."
+scene_3d = ExtResource("2_74in7")
+icon = ExtResource("1_4c7ga")
+value = 10
+metadata/_custom_type_script = "uid://bl4wsg8gsbb6e"

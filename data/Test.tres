@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="TreasureData" format=3 uid="uid://xip2v457jx40"]
+
+[ext_resource type="Script" uid="uid://bl4wsg8gsbb6e" path="res://scripts/treasure_data.gd" id="1_har7d"]
+[ext_resource type="Texture2D" uid="uid://x5qwhsr5noop" path="res://assets/icons/treasures/Test.png" id="1_popkr"]
+
+[resource]
+script = ExtResource("1_har7d")
+treasure_name = "Test 1"
+icon = ExtResource("1_popkr")
+digs_required = 3
+metadata/_custom_type_script = "uid://bl4wsg8gsbb6e"

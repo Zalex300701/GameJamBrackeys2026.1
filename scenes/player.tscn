@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://35m5om7o2x34" path="res://scripts/player.gd" id="1_g2els"]
 [ext_resource type="Material" uid="uid://b8x07pqimxat8" path="res://assets/materials/player_material.tres" id="2_qhqgy"]
 [ext_resource type="PackedScene" uid="uid://byq2wbk5ft35p" path="res://scenes/detector.tscn" id="3_qhqgy"]
+[ext_resource type="PackedScene" uid="uid://dbj18dixnkp24" path="res://scenes/pause_menu.tscn" id="4_dqkch"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_u8vuu"]
 
@@ -31,3 +32,5 @@ physics_interpolation_mode = 1
 target_position = Vector3(0, 0, -2)
 
 [node name="Detector" parent="Player_CharacterBody3D" unique_id=450831766 instance=ExtResource("3_qhqgy")]
+
+[node name="PauseMenu" parent="Player_CharacterBody3D" unique_id=2036292017 instance=ExtResource("4_dqkch")]

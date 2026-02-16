@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://dbj18dixnkp24"]
+
+[ext_resource type="Script" uid="uid://ddtqs3lpmv0lk" path="res://scripts/pause_menu.gd" id="1_n87rw"]
+
+[node name="PauseMenu" type="Control" unique_id=2036292017]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_n87rw")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=2108224823]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -93.0
+offset_top = -100.0
+offset_right = 93.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.05882353, 0.05882353, 0.05882353, 0.39215687)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect" unique_id=789246138]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -65.0
+offset_top = -90.0
+offset_right = 65.0
+offset_bottom = 90.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="PauseMenu_label" type="Label" parent="ColorRect/VBoxContainer" unique_id=450572304]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Pause"
+horizontal_alignment = 1
+
+[node name="Resume_button" type="Button" parent="ColorRect/VBoxContainer" unique_id=2097122261]
+layout_mode = 2
+text = "Resume"
+
+[node name="Quit_button" type="Button" parent="ColorRect/VBoxContainer" unique_id=461723258]
+layout_mode = 2
+text = "Quit"

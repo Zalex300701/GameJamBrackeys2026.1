@@ -4,6 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://byntskyhntcco" path="res://scenes/shelter.tscn" id="2_ca7ef"]
 [ext_resource type="PackedScene" uid="uid://biw60qf5vrh6f" path="res://scenes/HUD.tscn" id="3_kv8o0"]
 [ext_resource type="PackedScene" uid="uid://gqbkxvkchysv" path="res://scenes/treasure.tscn" id="4_gjpke"]
+[ext_resource type="Resource" uid="uid://6t7w7qpoobte" path="res://data/cube.tres" id="4_vtmdq"]
+[ext_resource type="Resource" uid="uid://vhi3odqlx0r0" path="res://data/sphere.tres" id="5_1xlfd"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_2rr2g"]
 
@@ -34,15 +36,18 @@ use_collision = true
 size = Vector3(150, 1, 150)
 
 [node name="Shelter" parent="Environment" unique_id=1978965594 instance=ExtResource("2_ca7ef")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -5)
+transform = Transform3D(-0.6654779, 0, -0.7464176, 0, 1, 0, 0.7464176, 0, -0.6654779, 6, 0, -5)
 
 [node name="Treasure" parent="Environment" unique_id=1774547254 instance=ExtResource("4_gjpke")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.329796, -0.14428148, 8.285943)
+data = ExtResource("4_vtmdq")
 
 [node name="Treasure2" parent="Environment" unique_id=1182920676 instance=ExtResource("4_gjpke")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.408207, -0.14428148, 16.567009)
+data = ExtResource("5_1xlfd")
 
 [node name="Treasure3" parent="Environment" unique_id=1757671613 instance=ExtResource("4_gjpke")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.898838, -0.14428148, -35.504036)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.26451874, -0.14428148, -4.5353947)
+data = ExtResource("5_1xlfd")
 
 [node name="HUD" parent="." unique_id=282066520 instance=ExtResource("3_kv8o0")]
