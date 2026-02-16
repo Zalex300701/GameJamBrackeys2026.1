@@ -28,8 +28,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0)
 [node name="Player_Camera3D" type="Camera3D" parent="Player_CharacterBody3D/Player_Head" unique_id=1225510185]
 physics_interpolation_mode = 1
 
-[node name="Player_RayCast3D" type="RayCast3D" parent="Player_CharacterBody3D/Player_Head" unique_id=1064550386]
-target_position = Vector3(0, 0, -2)
+[node name="Player_RayCast3D" type="RayCast3D" parent="Player_CharacterBody3D/Player_Head/Player_Camera3D" unique_id=1064550386]
+target_position = Vector3(0, 0, -2.5)
 
 [node name="Detector" parent="Player_CharacterBody3D" unique_id=450831766 instance=ExtResource("3_qhqgy")]
 

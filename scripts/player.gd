@@ -32,6 +32,10 @@ const OXYGEN_REGEN = 20.0
 var dig_cooldown: float = 0.0
 const DIG_COOLDOWN: float = 0.3
 
+# Grinding
+var total_dollars: int = 0
+var is_grinding: bool = false
+
 func _ready():
 	add_to_group("player")
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -84,8 +88,8 @@ func _physics_process(delta: float) -> void:
 	if hud:
 		hud.update_oxygen(oxygen)
 	
-	# Digging
 	_handle_digging(delta)
+	_handle_interaction()
 
 func _headbob(time) -> Vector3:
 	var pos = Vector3.ZERO
@@ -128,5 +132,41 @@ func add_inventory_item(treasure: TreasureData):
 		inventory_items[treasure.treasure_name] = {
 			"hbox": item,
 			"label": label,
-			"count": 1
+			"count": 1,
+			"data": treasure
 		}
+
+func _handle_interaction():
+	if Input.is_action_just_pressed("interact"):
+		print('E appuyé')
+		# Raycast vers ce que le joueur regarde
+		var ray = $Player_Head/Player_Camera3D/Player_RayCast3D
+		print("Ray colliding : ", ray.is_colliding())
+		if ray.is_colliding():
+			var hit = ray.get_collider()
+			if hit.has_method("interact"):
+				hit.interact(self)
+
+func grind_all():
+	if is_grinding or inventory_items.is_empty():
+		return
+	is_grinding = true
+	# Calcule le total et lance l'animation un par un
+	var keys = inventory_items.keys()
+	_grind_next(keys, 0)
+
+func _grind_next(keys: Array, index: int):
+	if index >= keys.size():
+		is_grinding = false
+		return
+	var key = keys[index]
+	var entry = inventory_items[key]
+	# Ajoute les dollars (count * value)
+	total_dollars += entry.data.value * entry.count
+	hud.update_dollars(total_dollars)
+	# Retire du HUD
+	hud.remove_inventory_item(entry.hbox)
+	inventory_items.erase(key)
+	# Lance l'item suivant après un délai
+	await get_tree().create_timer(0.4).timeout
+	_grind_next(keys, index + 1)

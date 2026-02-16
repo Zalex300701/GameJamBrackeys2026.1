@@ -33,3 +33,13 @@ value = 50.0
 layout_mode = 1
 offset_right = 330.0
 offset_bottom = 1080.0
+
+[node name="DollarsLabel" type="Label" parent="HUD_Control" unique_id=1902620975]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -212.0
+offset_bottom = 62.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 30

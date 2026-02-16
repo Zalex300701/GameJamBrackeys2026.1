@@ -36,7 +36,7 @@ use_collision = true
 size = Vector3(150, 1, 150)
 
 [node name="Shelter" parent="Environment" unique_id=1978965594 instance=ExtResource("2_ca7ef")]
-transform = Transform3D(-0.6654779, 0, -0.7464176, 0, 1, 0, 0.7464176, 0, -0.6654779, 6, 0, -5)
+transform = Transform3D(0.7349738, 0, -0.6780955, 0, 1, 0, 0.6780955, 0, 0.7349738, 6, 0, 7.1122265)
 
 [node name="Treasure" parent="Environment" unique_id=1774547254 instance=ExtResource("4_gjpke")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.329796, -0.14428148, 8.285943)

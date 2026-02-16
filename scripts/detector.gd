@@ -14,14 +14,14 @@ func _process(delta):
 
 func _scan():
 	var treasures = get_tree().get_nodes_in_group("treasure")
-	print("Trésors trouvés : ", treasures.size())
+	#print("Trésors trouvés : ", treasures.size())
 	var nearest = null
 	var min_dist = 10.0
 	for t in treasures:
 		if t.is_collected:
 			continue
 		var d = global_position.distance_to(t.global_position)
-		print("Distance brute : ", d)
+		#print("Distance brute : ", d)
 		if d < min_dist:
 			min_dist = d
 			nearest = t
