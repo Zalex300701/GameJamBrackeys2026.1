@@ -44,7 +44,7 @@ offset_bottom = 62.0
 grow_horizontal = 0
 theme_override_font_sizes/font_size = 30
 
-[node name="Label" type="Label" parent="HUD_Control" unique_id=306456577]
+[node name="DetectorLevelLabel" type="Label" parent="HUD_Control" unique_id=306456577]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -56,6 +56,21 @@ offset_top = -23.0
 grow_horizontal = 0
 grow_vertical = 0
 text = "Detector lvl: 1"
+
+[node name="InteractLabel" type="Label" parent="HUD_Control" unique_id=681943047]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -51.5
+offset_top = -180.0
+offset_right = 51.5
+offset_bottom = -157.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Interact label"
 
 [node name="Death_Control" type="Control" parent="." unique_id=944855728]
 layout_mode = 3

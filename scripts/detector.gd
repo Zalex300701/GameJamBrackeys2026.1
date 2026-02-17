@@ -6,6 +6,7 @@ const BIP_MAX_INTERVAL: float = 0.005
 var bip_timer: float = 0.0
 var nearest_treasure = null
 var dig_range: float = 2.0
+var detector_level: int = 1
 
 @onready var bip_sound = $BipSound
 
@@ -14,18 +15,23 @@ func _process(delta):
 	_update_bip(delta)
 
 func _scan():
-	var treasures = get_tree().get_nodes_in_group("treasure")
-	print("Trésors trouvés : ", treasures.size())
+	var all_treasures = get_tree().get_nodes_in_group("treasure")
+	var accessible_treasures = []
+	
+	for t in all_treasures:
+		if not t.is_collected and t.data.required_detector_level <= detector_level:
+			accessible_treasures.append(t)
+	
 	var nearest = null
 	var min_dist = 10.0
-	for t in treasures:
-		if t.is_collected:
-			continue
+	for t in accessible_treasures:
 		var d = global_position.distance_to(t.global_position)
-		print("Distance brute : ", d)
+		print("Trésors accessibles : ", accessible_treasures.size())
+		print("Distance : ", d)
 		if d < min_dist:
 			min_dist = d
 			nearest = t
+	
 	nearest_treasure = nearest
 
 func _update_bip(delta):
@@ -47,3 +53,12 @@ func get_diggable_target() -> Node:
 	if nearest_treasure and global_position.distance_to(nearest_treasure.global_position) < dig_range:
 		return nearest_treasure
 	return null
+
+func upgrade():
+	if detector_level < 3:
+		detector_level += 1
+		return true
+	return false
+
+func get_level() -> int:
+	return detector_level

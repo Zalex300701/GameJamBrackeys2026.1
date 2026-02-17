@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dxmd2oc63v75s" path="res://assets/models/environments/shelter_screen_texture.png" id="4_s84e0"]
 [ext_resource type="Texture2D" uid="uid://beoyyqo4wmrxs" path="res://assets/models/environments/shelter_table_texture.png" id="5_ejcbl"]
 [ext_resource type="PackedScene" uid="uid://cvlrp211yb7qp" path="res://scenes/grinder.tscn" id="6_u3ehf"]
+[ext_resource type="Script" uid="uid://b2bbo0hvvgsdt" path="res://scripts/upgrade_button.gd" id="7_s84e0"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_5f7xy"]
 size = Vector3(4, 3, 6)
@@ -325,6 +326,12 @@ albedo_color = Color(0.99646527, 0.16186017, 1.92523e-07, 1)
 emission_enabled = true
 emission = Color(0.9101116, 0.10163499, 3.85046e-07, 1)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_u3ehf"]
+size = Vector3(0.5654297, 0.63964844, 0.25683594)
+
+[sub_resource type="BoxMesh" id="BoxMesh_s84e0"]
+size = Vector3(0.1, 0.1, 0.1)
+
 [node name="Shelter" type="Node3D" unique_id=1978965594 groups=["shelter"]]
 
 [node name="Shelter_Area3D" type="Area3D" parent="." unique_id=850404894]
@@ -372,7 +379,19 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.16146, 0, -5.206647)
 [node name="SpawnPoint" type="Marker3D" parent="." unique_id=1302489562]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5133617, 1.1595709, -2.0956597)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=660566039]
+[node name="Light" type="MeshInstance3D" parent="." unique_id=660566039]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9523408, 7.8049746, -2.9620414)
 mesh = SubResource("SphereMesh_u3ehf")
 surface_material_override/0 = SubResource("StandardMaterial3D_s84e0")
+
+[node name="UpgradeButton" type="StaticBody3D" parent="." unique_id=1280720684]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.6442142, 1.5911627, -0.04718852)
+script = ExtResource("7_s84e0")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="UpgradeButton" unique_id=1702745711]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.1430664)
+shape = SubResource("BoxShape3D_u3ehf")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="UpgradeButton" unique_id=1865190809]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.071063995)
+mesh = SubResource("BoxMesh_s84e0")

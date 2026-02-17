@@ -33,7 +33,7 @@ var dig_cooldown: float = 0.0
 const DIG_COOLDOWN: float = 0.3
 
 # Grinding
-var total_dollars: int = 0
+var total_dollars: int = 500
 var is_grinding: bool = false
 
 var is_dead: bool = false
@@ -122,13 +122,23 @@ func add_inventory_item(treasure: TreasureData):
 	hud.add_to_list_item(treasure)
 
 func _handle_interaction():
-	if Input.is_action_just_pressed("interact"):
-		# Raycast vers ce que le joueur regarde
-		var ray = $Player_Head/Player_Camera3D/Player_RayCast3D
-		if ray.is_colliding():
-			var hit = ray.get_collider()
-			if hit.has_method("interact"):
+	var ray = $Player_Head/Player_Camera3D/Player_RayCast3D
+
+	if ray.is_colliding():
+		var hit = ray.get_collider()
+		if hit.has_method("interact"):
+			# Affiche le prompt selon l'objet
+			if hit.has_method("get_interact_text"):
+				hud.show_interact_prompt(hit.get_interact_text())
+			else:
+				hud.show_interact_prompt("[E] Interagir")
+			
+			if Input.is_action_just_pressed("interact"):
 				hit.interact(self)
+		else:
+			hud.hide_interact_prompt()
+	else:
+		hud.hide_interact_prompt()
 
 func _grind_next(items: Array, index: int):
 	if index >= items.size():

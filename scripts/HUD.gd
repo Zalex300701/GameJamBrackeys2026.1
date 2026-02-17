@@ -6,6 +6,8 @@ extends CanvasLayer
 @onready var dollars_label = $HUD_Control/DollarsLabel
 @onready var death_screen = $Death_Control/DeathScreen
 @onready var death_label = $Death_Control/DeathLabel
+@onready var interact_label: Label = $HUD_Control/InteractLabel
+var current_interact_text = ""
 
 var hud_items = {}
 
@@ -14,6 +16,8 @@ signal death_fade_finished
 func _ready():
 	death_screen.visible = false
 	death_label.modulate.a = 0.0
+	interact_label.modulate.a = 0.0
+	interact_label.visible = false
 
 func update_oxygen(value: float):
 	oxygen_bar.value = value
@@ -86,3 +90,23 @@ func hide_hud():
 func show_hud():
 	var tween = create_tween()
 	tween.tween_property(hud_control, "modulate:a", 1.0, 0.5)
+
+func show_interact_prompt(text: String):
+	if text == current_interact_text and interact_label.visible:
+		return
+	
+	current_interact_text = text
+	interact_label.text = text
+	interact_label.visible = true
+	
+	var tween = create_tween()
+	tween.tween_property(interact_label, "modulate:a", 1.0, 0.2)
+
+func hide_interact_prompt():
+	if not interact_label.visible:
+		return
+	
+	current_interact_text = ""
+	var tween = create_tween()
+	tween.tween_property(interact_label, "modulate:a", 0.0, 0.15)
+	tween.tween_callback(func(): interact_label.visible = false)
