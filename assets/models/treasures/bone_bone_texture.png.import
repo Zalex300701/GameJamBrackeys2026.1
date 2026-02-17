@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://fvcxpk6le7nc"
-path.s3tc="res://.godot/imported/sphere_Texture_sphere.png-bf8611348664b3ba4baf926c74488e74.s3tc.ctex"
+uid="uid://bjawsjr0cmndj"
+path.s3tc="res://.godot/imported/bone_bone_texture.png-d3ecdad4213ae1f42b089c48b766d2bc.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "484e47d9baf67ec1a7bc51d30e3a5365"
+"md5": "dce25796fc85272704436e1e77d99930"
 }
 
 [deps]
 
-source_file="res://assets/models/treasures/sphere_Texture_sphere.png"
-dest_files=["res://.godot/imported/sphere_Texture_sphere.png-bf8611348664b3ba4baf926c74488e74.s3tc.ctex"]
+source_file="res://assets/models/treasures/bone_bone_texture.png"
+dest_files=["res://.godot/imported/bone_bone_texture.png-d3ecdad4213ae1f42b089c48b766d2bc.s3tc.ctex"]
 
 [params]
 

@@ -22,7 +22,7 @@ func receive_dig():
 	var progress = float(digs_done) / float(data.digs_required)
 	mesh.visible = true
 	var tween = create_tween()
-	var target_y = lerp(0.0, 0.25, progress)
+	var target_y = lerp(0.0, 0.325, progress)
 	tween.tween_property(mesh, "position", Vector3(0, target_y, 0), 0.15)
 	if digs_done >= data.digs_required:
 		get_tree().get_first_node_in_group("player").add_inventory_item(data)

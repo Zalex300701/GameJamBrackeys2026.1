@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://dattvnpk8o4rv"
-path="res://.godot/imported/sphere.glb-3ba807dd849891672314499e9baf943b.scn"
+uid="uid://spnxxct6ivdk"
+path="res://.godot/imported/precious_material.glb-fb3437ed3510a155bd0780cb7b925a71.scn"
 
 [deps]
 
-source_file="res://assets/models/treasures/sphere.glb"
-dest_files=["res://.godot/imported/sphere.glb-3ba807dd849891672314499e9baf943b.scn"]
+source_file="res://assets/models/treasures/precious_material.glb"
+dest_files=["res://.godot/imported/precious_material.glb-fb3437ed3510a155bd0780cb7b925a71.scn"]
 
 [params]
 

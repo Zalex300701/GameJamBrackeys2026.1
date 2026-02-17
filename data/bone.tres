@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="TreasureData" format=3 uid="uid://c007e1511ptm1"]
+
+[ext_resource type="Texture2D" uid="uid://buc2nbt6nnkhi" path="res://assets/icons/treasures/bone_icon.png" id="1_8g37b"]
+[ext_resource type="Script" uid="uid://bl4wsg8gsbb6e" path="res://scripts/treasure_data.gd" id="1_ehi2f"]
+[ext_resource type="PackedScene" uid="uid://d2yqote4v2u4x" path="res://assets/models/treasures/bone.glb" id="2_x7anf"]
+
+[resource]
+script = ExtResource("1_ehi2f")
+treasure_name = "Bone"
+scene_3d = ExtResource("2_x7anf")
+icon = ExtResource("1_8g37b")
+value = 20
+digs_required = 10
+metadata/_custom_type_script = "uid://bl4wsg8gsbb6e"

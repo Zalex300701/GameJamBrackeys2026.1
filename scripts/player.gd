@@ -24,7 +24,7 @@ var inventory_items = []
 # Oxygen Module
 var oxygen: float = 100.0
 var in_shelter: bool = false
-const OXYGEN_DRAIN = 21.5
+const OXYGEN_DRAIN = 1.5
 const OXYGEN_REGEN = 20.0
 
 # Detector
