@@ -12,7 +12,7 @@ func _ready():
 	if data and data.scene_3d:
 		var model = data.scene_3d.instantiate()
 		$TreasureModel.add_child(model)
-	mesh.visible = true
+	mesh.visible = false
 
 func receive_dig():
 	if is_collected:

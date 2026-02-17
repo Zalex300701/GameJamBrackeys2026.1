@@ -1,14 +1,10 @@
 [gd_scene format=3 uid="uid://gqbkxvkchysv"]
 
 [ext_resource type="Script" uid="uid://dmnfnbmeuttje" path="res://scripts/treasure.gd" id="1_86quu"]
-[ext_resource type="Material" uid="uid://b8x07pqimxat8" path="res://assets/materials/player_material.tres" id="2_it12x"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_86quu"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_sri8j"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_sri8j"]
-material = ExtResource("2_it12x")
 
 [node name="Treasure" type="StaticBody3D" unique_id=1774547254 groups=["treasure"]]
 script = ExtResource("1_86quu")
@@ -24,5 +20,4 @@ transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0)
 shape = SubResource("SphereShape3D_sri8j")
 
 [node name="TreasureModel" type="MeshInstance3D" parent="." unique_id=717186025]
-transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
-mesh = SubResource("BoxMesh_sri8j")
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)

@@ -31,6 +31,13 @@ physics_interpolation_mode = 1
 [node name="Player_RayCast3D" type="RayCast3D" parent="Player_CharacterBody3D/Player_Head/Player_Camera3D" unique_id=1064550386]
 target_position = Vector3(0, 0, -2.5)
 
+[node name="SpotLight3D" type="SpotLight3D" parent="Player_CharacterBody3D/Player_Head/Player_Camera3D" unique_id=1711091148]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.14283407, -0.3167615)
+light_color = Color(0.90438735, 0.9361942, 0.95177025, 1)
+spot_range = 7.0
+spot_angle = 60.0
+spot_angle_attenuation = 2.1435475
+
 [node name="Detector" parent="Player_CharacterBody3D" unique_id=450831766 instance=ExtResource("3_qhqgy")]
 
 [node name="PauseMenu" parent="Player_CharacterBody3D" unique_id=2036292017 instance=ExtResource("4_dqkch")]

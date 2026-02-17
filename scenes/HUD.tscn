@@ -44,7 +44,29 @@ offset_bottom = 62.0
 grow_horizontal = 0
 theme_override_font_sizes/font_size = 30
 
-[node name="DeathScreen" type="ColorRect" parent="HUD_Control" unique_id=625536551]
+[node name="Label" type="Label" parent="HUD_Control" unique_id=306456577]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -107.0
+offset_top = -23.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Detector lvl: 1"
+
+[node name="Death_Control" type="Control" parent="." unique_id=944855728]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="DeathScreen" type="ColorRect" parent="Death_Control" unique_id=625536551]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -53,7 +75,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.08235294, 0.09803922, 0.10980392, 0)
 
-[node name="DeathLabel" type="Label" parent="HUD_Control" unique_id=1238154759]
+[node name="DeathLabel" type="Label" parent="Death_Control" unique_id=1238154759]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5

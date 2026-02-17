@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="TreasureData" format=3 uid="uid://ckww2lj4vv5xg"]
+
+[ext_resource type="Texture2D" uid="uid://cnu853m23idap" path="res://assets/icons/treasures/american_ball_icon.png" id="1_l5oxv"]
+[ext_resource type="Script" uid="uid://bl4wsg8gsbb6e" path="res://scripts/treasure_data.gd" id="1_rvfy0"]
+[ext_resource type="PackedScene" uid="uid://31srmfgoga7g" path="res://assets/models/treasures/american_ball_model.glb" id="2_vakvf"]
+
+[resource]
+script = ExtResource("1_rvfy0")
+treasure_name = "American ball"
+scene_3d = ExtResource("2_vakvf")
+icon = ExtResource("1_l5oxv")
+value = 5
+digs_required = 10
+metadata/_custom_type_script = "uid://bl4wsg8gsbb6e"

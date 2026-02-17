@@ -1,10 +1,11 @@
 extends CanvasLayer
 
+@onready var hud_control = $HUD_Control
 @onready var oxygen_bar = $HUD_Control/OxygenBar
 @onready var inventory_list: VBoxContainer = $HUD_Control/InventoryList
 @onready var dollars_label = $HUD_Control/DollarsLabel
-@onready var death_screen = $HUD_Control/DeathScreen
-@onready var death_label = $HUD_Control/DeathLabel
+@onready var death_screen = $Death_Control/DeathScreen
+@onready var death_label = $Death_Control/DeathLabel
 
 var hud_items = {}
 
@@ -77,3 +78,11 @@ func hide_death():
 		death_screen.visible = false
 		death_fade_finished.emit()
 	)
+
+func hide_hud():
+	var tween = create_tween()
+	tween.tween_property(hud_control, "modulate:a", 0.0, 0.5)
+
+func show_hud():
+	var tween = create_tween()
+	tween.tween_property(hud_control, "modulate:a", 1.0, 0.5)

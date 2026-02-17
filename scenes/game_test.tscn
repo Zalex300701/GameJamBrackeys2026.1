@@ -1,30 +1,89 @@
 [gd_scene format=3 uid="uid://bwnqf5o87fsu7"]
 
 [ext_resource type="PackedScene" uid="uid://u72yclqpkr4j" path="res://scenes/player.tscn" id="1_2rr2g"]
+[ext_resource type="Shader" uid="uid://dydsk1wsni2ng" path="res://shader/stylized_sky.gdshader" id="1_vtmdq"]
 [ext_resource type="PackedScene" uid="uid://byntskyhntcco" path="res://scenes/shelter.tscn" id="2_ca7ef"]
+[ext_resource type="Texture2D" uid="uid://de4g6t5ubx3ob" path="res://assets/textures/moon_ground_texture.png" id="3_1xlfd"]
 [ext_resource type="PackedScene" uid="uid://biw60qf5vrh6f" path="res://scenes/HUD.tscn" id="3_kv8o0"]
 [ext_resource type="PackedScene" uid="uid://gqbkxvkchysv" path="res://scenes/treasure.tscn" id="4_gjpke"]
-[ext_resource type="Resource" uid="uid://6t7w7qpoobte" path="res://data/cube.tres" id="4_vtmdq"]
 [ext_resource type="Resource" uid="uid://vhi3odqlx0r0" path="res://data/sphere.tres" id="5_1xlfd"]
+[ext_resource type="Resource" uid="uid://ckww2lj4vv5xg" path="res://data/american_ball.tres" id="5_vtmdq"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_2rr2g"]
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_vtmdq"]
+seed = 13
+frequency = 0.005
+fractal_gain = 0.02
 
-[sub_resource type="Sky" id="Sky_ca7ef"]
-sky_material = SubResource("ProceduralSkyMaterial_2rr2g")
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_1xlfd"]
+noise = SubResource("FastNoiseLite_vtmdq")
+seamless = true
 
-[sub_resource type="Environment" id="Environment_2rr2g"]
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_1xlfd"]
+seed = 20
+frequency = 0.0026
+offset = Vector3(-528.2, -637.66, 0)
+fractal_weighted_strength = 1.0
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_u7iqn"]
+noise = SubResource("FastNoiseLite_1xlfd")
+seamless = true
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_u7iqn"]
+seed = 12
+frequency = 0.02
+fractal_gain = 0.0
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_g7rj4"]
+noise = SubResource("FastNoiseLite_u7iqn")
+seamless = true
+seamless_blend_skirt = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gjpke"]
+shader = ExtResource("1_vtmdq")
+shader_parameter/cloud_shape_sampler = SubResource("NoiseTexture2D_u7iqn")
+shader_parameter/cloud_noise_sampler = SubResource("NoiseTexture2D_1xlfd")
+shader_parameter/clouds_samples = 16
+shader_parameter/shadow_sample = 4
+shader_parameter/clouds_density = 0.60000000894072
+shader_parameter/clouds_scale = 1.0000000074506001
+shader_parameter/clouds_smoothness = 0.06999999843536
+shader_parameter/clouds_light_color = Color(0.079257585, 0.10745456, 0.13413152, 1)
+shader_parameter/clouds_shadow_intensity = 1.5000000223518
+shader_parameter/high_clouds_sampler = SubResource("NoiseTexture2D_g7rj4")
+shader_parameter/high_clouds_density = 0.5000000074506
+shader_parameter/top_color = Color(0, 0, 0, 1)
+shader_parameter/bottom_color = Color(0.018744752, 0.034906257, 0.05114857, 1)
+shader_parameter/sun_scatter = Color(0.029506557, 0.029506557, 0.029506557, 1)
+shader_parameter/astro_tint = Color(0, 0, 0, 1)
+shader_parameter/astro_scale = 1.0000000149012
+shader_parameter/astro_intensity = 1.0
+shader_parameter/stars_intensity = 1.0000000149012
+shader_parameter/shooting_stars_intensity = 0.0
+shader_parameter/shooting_star_tint = Color(0, 0, 0, 1)
+
+[sub_resource type="Sky" id="Sky_vtmdq"]
+sky_material = SubResource("ShaderMaterial_gjpke")
+
+[sub_resource type="Environment" id="Environment_1xlfd"]
 background_mode = 2
-sky = SubResource("Sky_ca7ef")
-ambient_light_source = 2
-ambient_light_color = Color(0.8378778, 0.75461435, 0.7045271, 1)
-fog_enabled = true
-fog_light_color = Color(0.10782992, 0.1268579, 0.1281867, 1)
-fog_density = 0.3
+sky = SubResource("Sky_vtmdq")
+tonemap_mode = 2
+glow_enabled = true
+fog_light_color = Color(0.09486606, 0.10728266, 0.12660342, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u7iqn"]
+albedo_texture = ExtResource("3_1xlfd")
+uv1_scale = Vector3(10, 10, 10)
 
 [node name="Game_test" type="Node3D" unique_id=1399220631]
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1469471542]
-environment = SubResource("Environment_2rr2g")
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1168452937]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+visible = false
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1149198666]
+environment = SubResource("Environment_1xlfd")
 
 [node name="Player" parent="." unique_id=1693716514 instance=ExtResource("1_2rr2g")]
 
@@ -33,18 +92,19 @@ environment = SubResource("Environment_2rr2g")
 [node name="CSGBox3D" type="CSGBox3D" parent="Environment" unique_id=1203997660]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 use_collision = true
-size = Vector3(150, 1, 150)
+size = Vector3(300, 1, 300)
+material = SubResource("StandardMaterial3D_u7iqn")
 
 [node name="Shelter" parent="Environment" unique_id=1978965594 instance=ExtResource("2_ca7ef")]
-transform = Transform3D(0.7349738, 0, -0.6780955, 0, 1, 0, 0.6780955, 0, 0.7349738, 6, 0, 7.1122265)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7508011, 0, 1.3974376)
 
 [node name="Treasure" parent="Environment" unique_id=1774547254 instance=ExtResource("4_gjpke")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.146564, -0.21, -3.019)
-data = ExtResource("4_vtmdq")
+data = ExtResource("5_vtmdq")
 
 [node name="Treasure2" parent="Environment" unique_id=1182920676 instance=ExtResource("4_gjpke")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.965834, -0.21, -9.113648)
-data = ExtResource("5_1xlfd")
+data = ExtResource("5_vtmdq")
 
 [node name="Treasure3" parent="Environment" unique_id=1757671613 instance=ExtResource("4_gjpke")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.265, -0.21, -12.352733)

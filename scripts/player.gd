@@ -24,7 +24,7 @@ var inventory_items = []
 # Oxygen Module
 var oxygen: float = 100.0
 var in_shelter: bool = false
-const OXYGEN_DRAIN = 1.5
+const OXYGEN_DRAIN = 21.5
 const OXYGEN_REGEN = 20.0
 
 # Detector
@@ -153,19 +153,21 @@ func grind_all():
 func _die():
 	is_dead = true
 	set_physics_process(false)
+	hud.hide_hud()
 	hud.show_death()
 	await get_tree().create_timer(2.0).timeout
 	_respawn()
 
 func _respawn():
+	oxygen = 100.0
 	# Trouve le shelter pour se téléporter
 	var shelter = get_tree().get_first_node_in_group("shelter")
 	if shelter:
 		global_position = shelter.get_node("SpawnPoint").global_position
 	# Réinitialise l'état
-	oxygen = 100.0
 	velocity = Vector3.ZERO
 	hud.hide_death()
 	await hud.death_fade_finished
+	hud.show_hud()
 	is_dead = false
 	set_physics_process(true)
