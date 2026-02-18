@@ -35,10 +35,13 @@ var dig_cooldown: float = 0.0
 const DIG_COOLDOWN: float = 0.3
 
 # Grinding
-var total_dollars: int = 500
+var total_dollars: int = 5000
 var is_grinding: bool = false
 
 var is_dead: bool = false
+var sos_fragments: int = 0
+var has_beacon: bool = false
+var beacon_instance = null
 
 func _ready():
 	add_to_group("player")
@@ -100,6 +103,9 @@ func _physics_process(delta: float) -> void:
 		
 		_handle_digging(delta)
 		_handle_interaction()
+		
+		if has_beacon:
+			_handle_beacon_placement()
 
 func _headbob(time) -> Vector3:
 	var pos = Vector3.ZERO
@@ -124,10 +130,19 @@ func _handle_digging(delta):
 func add_inventory_item(treasure: TreasureData):
 	inventory_items.append(treasure)
 	hud.add_to_list_item(treasure)
+	
+	if treasure.is_sos_fragment:
+		sos_fragments += 1
+		hud.update_sos_count(sos_fragments)
+		if sos_fragments >= 3:
+			print("Tous les fragments collectés ! Construisez la balise !")
 
 func _handle_interaction():
+	if has_beacon:
+		return
+	
 	var ray = $Player_Head/Player_Camera3D/Player_RayCast3D
-
+	
 	if ray.is_colliding():
 		var hit = ray.get_collider()
 		if hit.has_method("interact"):
@@ -160,8 +175,17 @@ func grind_all():
 	if is_grinding or inventory_items.is_empty():
 		return
 	is_grinding = true
-	var items_to_grind = inventory_items.duplicate()
-	inventory_items.clear()
+	var items_to_grind = []
+	for item in inventory_items:
+		if not item.is_sos_fragment:
+			items_to_grind.append(item)
+	
+	if items_to_grind.is_empty():
+		is_grinding = false
+		print("Rien à broyer !")
+		return
+	
+	inventory_items = inventory_items.filter(func(i): return i.is_sos_fragment)
 	_grind_next(items_to_grind, 0)
 
 func _die():
@@ -185,3 +209,43 @@ func _respawn():
 	hud.show_hud()
 	is_dead = false
 	set_physics_process(true)
+
+func give_beacon():
+	has_beacon = true
+	sos_fragments = 0  # retire les fragments
+	hud.update_sos_count(0)
+	hud.show_beacon_held()
+
+	# Instancie un modèle 3D de balise dans les mains
+	beacon_instance = preload("res://assets/models/treasures/american_ball_model.glb").instantiate()
+	$Player_Head/Player_Camera3D.add_child(beacon_instance)
+	beacon_instance.position = Vector3(0.3, -0.2, -0.5)
+
+func _handle_beacon_placement():
+	if not has_beacon:
+		return
+	
+	var shelter = get_tree().get_first_node_in_group("shelter")
+	if not shelter:
+		return
+	
+	var distance = global_position.distance_to(shelter.global_position)
+	if distance < 5.0:
+		hud.show_interact_prompt("Eloignez-vous du shelter!")
+		return
+	
+	hud.show_interact_prompt("[E] Poser la balise")
+	
+	if Input.is_action_just_pressed("interact"):
+		_place_beacon()
+
+func _place_beacon():
+	has_beacon = false
+	beacon_instance.queue_free()
+	
+	# Instancie la balise dans le monde
+	var beacon_world = preload("res://scenes/beacon_placed.tscn").instantiate()
+	get_parent().add_child(beacon_world)
+	beacon_world.global_position = global_position + head.transform.basis.z * -2.0  # 2m devant
+	
+	hud.hide_beacon_held()

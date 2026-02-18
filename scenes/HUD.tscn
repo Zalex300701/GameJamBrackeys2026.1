@@ -72,6 +72,26 @@ grow_horizontal = 2
 grow_vertical = 0
 text = "Interact label"
 
+[node name="SOSLabel" type="Label" parent="HUD_Control" unique_id=1244147496]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -85.0
+offset_right = 264.0
+grow_vertical = 0
+
+[node name="BeaconHeldLabel" type="Label" parent="HUD_Control" unique_id=1326307103]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -295.0
+offset_top = 42.0
+offset_right = 295.0
+offset_bottom = 101.0
+grow_horizontal = 2
+
 [node name="Death_Control" type="Control" parent="." unique_id=944855728]
 layout_mode = 3
 anchors_preset = 15

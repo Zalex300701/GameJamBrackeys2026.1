@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://ycbqe5w74tpb"]
+
+[ext_resource type="Script" uid="uid://dvghcvbw4aeiu" path="res://scripts/beacon_placed.gd" id="1_xpdt6"]
+[ext_resource type="Material" uid="uid://b8x07pqimxat8" path="res://assets/materials/player_material.tres" id="2_f05t1"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jysxc"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_lmxc7"]
+
+[node name="BeaconPlaced" type="StaticBody3D" unique_id=1356269082]
+script = ExtResource("1_xpdt6")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2028687505]
+shape = SubResource("BoxShape3D_jysxc")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=35866692]
+mesh = SubResource("BoxMesh_lmxc7")
+surface_material_override/0 = ExtResource("2_f05t1")

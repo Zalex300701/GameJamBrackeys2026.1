@@ -6,9 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://de4g6t5ubx3ob" path="res://assets/textures/moon_ground_texture.png" id="3_1xlfd"]
 [ext_resource type="PackedScene" uid="uid://biw60qf5vrh6f" path="res://scenes/HUD.tscn" id="3_kv8o0"]
 [ext_resource type="PackedScene" uid="uid://gqbkxvkchysv" path="res://scenes/treasure.tscn" id="4_gjpke"]
-[ext_resource type="Resource" uid="uid://ckww2lj4vv5xg" path="res://data/american_ball.tres" id="5_vtmdq"]
-[ext_resource type="Resource" uid="uid://c007e1511ptm1" path="res://data/bone.tres" id="7_1xlfd"]
-[ext_resource type="Resource" uid="uid://jpgkp5vjvc05" path="res://data/precious_material.tres" id="8_u7iqn"]
+[ext_resource type="Resource" uid="uid://1xtfba2ckd75" path="res://data/SOS_fragment.tres" id="6_vtmdq"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_vtmdq"]
 seed = 13
@@ -102,14 +100,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7508011, 0, 1.3974376)
 
 [node name="Treasure" parent="Environment" unique_id=1774547254 instance=ExtResource("4_gjpke")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.146564, -0.21, -3.019)
-data = ExtResource("5_vtmdq")
+data = ExtResource("6_vtmdq")
 
 [node name="Treasure2" parent="Environment" unique_id=1182920676 instance=ExtResource("4_gjpke")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.965834, -0.21, -9.113648)
-data = ExtResource("7_1xlfd")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.758638, -0.21, 3.9849787)
+data = ExtResource("6_vtmdq")
 
 [node name="Treasure3" parent="Environment" unique_id=1757671613 instance=ExtResource("4_gjpke")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.265, -0.21, -12.352733)
-data = ExtResource("8_u7iqn")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.283107, -0.21, -8.760357)
+data = ExtResource("6_vtmdq")
 
 [node name="HUD" parent="." unique_id=282066520 instance=ExtResource("3_kv8o0")]

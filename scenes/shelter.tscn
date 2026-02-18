@@ -1,5 +1,6 @@
 [gd_scene format=4 uid="uid://byntskyhntcco"]
 
+[ext_resource type="PackedScene" uid="uid://bak5oyb2wq1of" path="res://scenes/sos_beacon_station.tscn" id="1_ejcbl"]
 [ext_resource type="Script" uid="uid://r1q7sq5t7axg" path="res://scripts/shelter.gd" id="1_en2vt"]
 [ext_resource type="Texture2D" uid="uid://bwk3fr8a5brou" path="res://assets/models/environments/shelter_shelter_texture.png" id="2_osqu4"]
 [ext_resource type="Texture2D" uid="uid://csrkvfpr6fr34" path="res://assets/models/environments/shelter_pc_texture.png" id="3_u3ehf"]
@@ -333,6 +334,9 @@ size = Vector3(0.5654297, 0.63964844, 0.25683594)
 size = Vector3(0.1, 0.1, 0.1)
 
 [node name="Shelter" type="Node3D" unique_id=1978965594 groups=["shelter"]]
+
+[node name="SOSBeaconStation" parent="." unique_id=1878223604 instance=ExtResource("1_ejcbl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.2085319, 0.61088634, -3.8085444)
 
 [node name="Shelter_Area3D" type="Area3D" parent="." unique_id=850404894]
 script = ExtResource("1_en2vt")

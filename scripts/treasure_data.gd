@@ -8,3 +8,4 @@ class_name TreasureData
 @export var value: int = 0
 @export var digs_required: int = 5
 @export var required_detector_level: int = 1
+@export var is_sos_fragment: bool = false

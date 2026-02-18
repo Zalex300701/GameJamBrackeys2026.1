@@ -8,6 +8,8 @@ extends CanvasLayer
 @onready var death_label = $Death_Control/DeathLabel
 @onready var interact_label: Label = $HUD_Control/InteractLabel
 var current_interact_text = ""
+@onready var sos_label = $HUD_Control/SOSLabel
+@onready var beacon_held_label = $HUD_Control/BeaconHeldLabel
 
 var hud_items = {}
 
@@ -18,6 +20,8 @@ func _ready():
 	death_label.modulate.a = 0.0
 	interact_label.modulate.a = 0.0
 	interact_label.visible = false
+	sos_label.text = "Fragments SOS: 0/3"
+	beacon_held_label.visible = false
 
 func update_oxygen(value: float):
 	oxygen_bar.value = value
@@ -110,3 +114,24 @@ func hide_interact_prompt():
 	var tween = create_tween()
 	tween.tween_property(interact_label, "modulate:a", 0.0, 0.15)
 	tween.tween_callback(func(): interact_label.visible = false)
+
+func update_sos_count(count: int):
+	sos_label.text = "Fragments SOS: " + str(count) + "/3"
+	if count >= 3:
+		sos_label.modulate = Color.GREEN
+
+func show_beacon_held():
+	beacon_held_label.visible = true
+	beacon_held_label.text = "Balise SOS en main - Posez-la près du shelter"
+
+func hide_beacon_held():
+	beacon_held_label.visible = false
+
+func fade_to_black():
+	var fade = ColorRect.new()
+	fade.color = Color.BLACK
+	fade.modulate.a = 0.0
+	$HUD_Control.add_child(fade)
+	fade.set_anchors_preset(Control.PRESET_FULL_RECT)
+	var tween = create_tween()
+	tween.tween_property(fade, "modulate:a", 1.0, 3.0)

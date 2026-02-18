@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="TreasureData" format=3 uid="uid://1xtfba2ckd75"]
+
+[ext_resource type="Texture2D" uid="uid://x5qwhsr5noop" path="res://assets/icons/treasures/Test.png" id="1_fyaji"]
+[ext_resource type="PackedScene" uid="uid://31srmfgoga7g" path="res://assets/models/treasures/american_ball_model.glb" id="2_5v67x"]
+[ext_resource type="Script" uid="uid://bl4wsg8gsbb6e" path="res://scripts/treasure_data.gd" id="3_7b3uw"]
+
+[resource]
+script = ExtResource("3_7b3uw")
+treasure_name = "SOS fragment"
+scene_3d = ExtResource("2_5v67x")
+icon = ExtResource("1_fyaji")
+digs_required = 10
+required_detector_level = 3
+is_sos_fragment = true
+metadata/_custom_type_script = "uid://bl4wsg8gsbb6e"

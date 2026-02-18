@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://bak5oyb2wq1of"]
+
+[ext_resource type="Script" uid="uid://c2qg7m7ijny41" path="res://scripts/sos_beacon_station.gd" id="1_asvrg"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rvmrx"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_asvrg"]
+
+[node name="SOSBeaconStation" type="StaticBody3D" unique_id=1878223604]
+script = ExtResource("1_asvrg")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=77776980]
+shape = SubResource("BoxShape3D_rvmrx")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1953193329]
+mesh = SubResource("BoxMesh_asvrg")
