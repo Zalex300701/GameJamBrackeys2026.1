@@ -395,3 +395,7 @@ shape = SubResource("BoxShape3D_u3ehf")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="UpgradeButton" unique_id=1865190809]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.071063995)
 mesh = SubResource("BoxMesh_s84e0")
+
+[node name="GPUParticlesCollisionBox3D" type="GPUParticlesCollisionBox3D" parent="." unique_id=701936677]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9999998, 2.1000001, -3.0000002)
+size = Vector3(4.2000003, 4.2000003, 6.2000003)

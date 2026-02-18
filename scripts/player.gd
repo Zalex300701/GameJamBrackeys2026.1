@@ -16,6 +16,8 @@ var gravity = 9.8
 
 @onready var head: Node3D = $Player_Head
 @onready var camera: Camera3D = $Player_Head/Player_Camera3D
+@export var particles_node: GPUParticles3D
+@onready var remote_transform_3d: RemoteTransform3D = $RemoteTransform3D
 
 @onready var pause_menu := $PauseMenu
 @onready var hud = get_tree().get_first_node_in_group("hud")
@@ -24,7 +26,7 @@ var inventory_items = []
 # Oxygen Module
 var oxygen: float = 100.0
 var in_shelter: bool = false
-const OXYGEN_DRAIN = 1.5
+const OXYGEN_DRAIN = 21.5
 const OXYGEN_REGEN = 20.0
 
 # Detector
@@ -41,6 +43,8 @@ var is_dead: bool = false
 func _ready():
 	add_to_group("player")
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	if particles_node:
+		remote_transform_3d.set_remote_node(particles_node.get_path())
 
 func _unhandled_input(event):
 	if event is InputEventMouseMotion:

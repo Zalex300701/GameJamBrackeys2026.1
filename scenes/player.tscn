@@ -10,11 +10,35 @@
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_dqkch"]
 material = ExtResource("2_qhqgy")
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dqkch"]
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.31447068, 0.362718, 0.40304515, 1)
+billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_qlg0r"]
+emission_shape = 3
+emission_box_extents = Vector3(20, 5, 20)
+direction = Vector3(1, 1, 0)
+spread = 10.0
+initial_velocity_min = 5.0
+initial_velocity_max = 5.0
+scale_min = 0.19999999
+scale_max = 1.5
+collision_mode = 2
+
+[sub_resource type="QuadMesh" id="QuadMesh_tuyoq"]
+size = Vector2(0.05, 0.05)
+
 [node name="Player" type="Node3D" unique_id=1693716514]
 
-[node name="Player_CharacterBody3D" type="CharacterBody3D" parent="." unique_id=86337823]
+[node name="Player_CharacterBody3D" type="CharacterBody3D" parent="." unique_id=86337823 node_paths=PackedStringArray("particles_node")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 script = ExtResource("1_g2els")
+particles_node = NodePath("../DustParticles")
 
 [node name="Player_CollisionShape3D" type="CollisionShape3D" parent="Player_CharacterBody3D" unique_id=683100829]
 shape = SubResource("CapsuleShape3D_u8vuu")
@@ -41,3 +65,19 @@ spot_angle_attenuation = 2.1435475
 [node name="Detector" parent="Player_CharacterBody3D" unique_id=450831766 instance=ExtResource("3_qhqgy")]
 
 [node name="PauseMenu" parent="Player_CharacterBody3D" unique_id=2036292017 instance=ExtResource("4_dqkch")]
+
+[node name="RemoteTransform3D" type="RemoteTransform3D" parent="Player_CharacterBody3D" unique_id=2017455227]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+update_rotation = false
+update_scale = false
+
+[node name="DustParticles" type="GPUParticles3D" parent="." unique_id=1104111216]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
+material_override = SubResource("StandardMaterial3D_dqkch")
+transparency = 0.95
+cast_shadow = 0
+amount = 1000
+preprocess = 3.0
+visibility_aabb = AABB(-25, -50, -25, 50, 50, 50)
+process_material = SubResource("ParticleProcessMaterial_qlg0r")
+draw_pass_1 = SubResource("QuadMesh_tuyoq")
