@@ -1,10 +1,50 @@
-[gd_scene format=3 uid="uid://gqbkxvkchysv"]
+[gd_scene format=4 uid="uid://gqbkxvkchysv"]
 
 [ext_resource type="Script" uid="uid://dmnfnbmeuttje" path="res://scripts/treasure.gd" id="1_86quu"]
+[ext_resource type="PackedScene" uid="uid://31srmfgoga7g" path="res://assets/models/treasures/american_ball_model.glb" id="2_0g4qu"]
+[ext_resource type="Texture2D" uid="uid://bdg271a0xxdhs" path="res://assets/models/props/rock_debris_rock_debris_texture.png" id="3_wqbho"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_86quu"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_sri8j"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_etkn2"]
+resource_name = "Material.002"
+cull_mode = 2
+albedo_texture = ExtResource("3_wqbho")
+roughness = 0.5
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_uq77q"]
+_surfaces = [{
+"aabb": AABB(-1.1437773, 0.005016885, -0.8612062, 2.2792883, 1.3060235, 2.1283393),
+"format": 34896613377,
+"index_count": 180,
+"index_data": PackedByteArray("AAABAAIAAQADAAIAAgADAAQAAAAFAAEABgAFAAAAAQAHAAMACAAFAAYACQAIAAYABQAKAAEAAQAKAAcACAALAAUABQALAAoACQAMAAgADQAMAAkACAAOAAsADAAOAAgACwAPAAoADgAPAAsADwAQAAoACgAQAAcAEQAMAA0AEgARAA0ADAATAA4AEQATAAwAFAAPAA4AEwAUAA4ADwAVABAAFAAVAA8AFgAUABMAEQAWABMAFwAVABQAFwAUABYAEAAVABgAGAAVABcAEgAZABEAGQAWABEAGgAZABIAGwAXABYAGQAbABYAHAAZABoAHAAbABkAHQAcABoAHgAXABsAHAAeABsAGAAXAB4AHQAfABwAHwAeABwAIAAfAB0AIQAYAB4AHwAhAB4AIgAfACAAIgAhAB8ABAAiACAABAADACIAIgAjACEAIwAYACEAAwAjACIAEAAYACMAAwAHACMABwAQACMA"),
+"name": "Material.002",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 36,
+"vertex_data": PackedByteArray("7fIAAKzVAAAi8DxZvLUAAP//AADOegAATu08WahfAACz7AAAdC4AAJbZYli06wAAHMgAAP//AACR5f20l4QAAMWWKFhe/gAA82cAADL9AAA62ZOwacoAANu4p6XE7wAAgEooWELUAACqKAAA4s8AADJr0a/D4AAAGK0l5rnFAAApxUzYJYwAAP4pfodloAAAAAAAAONrAADKP7y/g7gAANNX/uV5kAAA/pf//wF+AACWNrzZz24AAD5k5/GKVwAAwKYl5ps6AABMIZWEAVcAAAkNAABuNQAAYE/CzX1CAABIUrtogCoAAI1uAAAAAAAAGHL1tJIjAAAfiihYGAkAAMfCAABgCwAAgan7q74bAAAD0mJYwBoAANrTk7ClPAAA")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_5gp2y"]
+resource_name = "rock_debris_Icosphere"
+_surfaces = [{
+"aabb": AABB(-1.1437773, 0.005016885, -0.8612062, 2.2792883, 1.3060235, 2.1283393),
+"attribute_data": PackedByteArray("pN+yhGTNZ5Hosv9///9hyXruE7WR+LeaHL///5/PN+Ap7TXs/3/x1Kudn9lIpMz7/o/xkFiTPqb/f1CppN+yhDHjJJtkzWeR//9hyVDnkNZ67hO1HL///x61t+Wfzzfg/3/x1MiOvcSrnZ/Z/o/xkEyrKpRYkz6m5t0grJbPIbJ/0dKiKtLE0kHFEMz13OjEv67o0fW0FsrtvHnWE572t4eqXri0okTJpbv4oCS/e6u8phupJL97q0S9WLqHql64JL97q4eqXri8phupvKYbqYeqXrgTnva3h6peuES9WLr1tBbKh6peuPW0Fsq0okTJtKJEyfW0Fsq/rujR9bQWykS9WLpBxRDM9bQWykHFEMztvHnW7bx51kHFEMwq0sTSQcUQzES9WLqWzyGyQcUQzJbPIbL13OjE9dzoxJbPIbLm3SCsls8hskS9WLokv3urls8hsiS/e6t/0dKif9HSoiS/e6ulu/igTKsqlKW7+KC8phupTKsqlLymG6lYkz6mWJM+prymG6kTnva3yI69xBOe9re0okTJyI69xLSiRMmrnZ/Zq52f2bSiRMm/rujRHrW35b+u6NHtvHnWHrW35e28edafzzfgn8834O28edYq0sTSUOeQ1irSxNL13OjEUOeQ1vXc6MR67hO1eu4TtfXc6MTm3SCsMeMkm+bdIKx/0dKiMeMkm3/R0qJkzWeRZM1nkX/R0qKlu/igWJM+phOe9rfIjr3EWJM+psiOvcT/f1Cp/39QqciOvcT/f/HUq52f2b+u6NEetbflq52f2R61t+VIpMz7SKTM+x61t+Ucv///n8834CrSxNJQ55DWn8834FDnkNYp7TXsKe017FDnkNb//2HJeu4TtebdIKwx4ySbeu4TtTHjJJuR+Leakfi3mjHjJJuk37KEZM1nkaW7+KBMqyqUZM1nkUyrKpTosv9/6LL/f0yrKpT+j/GQ"),
+"format": 34896613399,
+"index_count": 180,
+"index_data": PackedByteArray("AAABAAIAAwAEAAUABgAHAAgACQAKAAsADAANAA4ADwAQABEAEgATABQAFQAWABcAGAAZABoAGwAcAB0AHgAfACAAIQAiACMAJAAlACYAJwAoACkAKgArACwALQAuAC8AMAAxADIAMwA0ADUANgA3ADgAOQA6ADsAPAA9AD4APwBAAEEAQgBDAEQARQBGAEcASABJAEoASwBMAE0ATgBPAFAAUQBSAFMAVABVAFYAVwBYAFkAWgBbAFwAXQBeAF8AYABhAGIAYwBkAGUAZgBnAGgAaQBqAGsAbABtAG4AbwBwAHEAcgBzAHQAdQB2AHcAeAB5AHoAewB8AH0AfgB/AIAAgQCCAIMAhACFAIYAhwCIAIkAigCLAIwAjQCOAI8AkACRAJIAkwCUAJUAlgCXAJgAmQCaAJsAnACdAJ4AnwCgAKEAogCjAKQApQCmAKcAqACpAKoAqwCsAK0ArgCvALAAsQCyALMA"),
+"material": SubResource("StandardMaterial3D_etkn2"),
+"name": "Material.002",
+"primitive": 3,
+"uv_scale": Vector4(1.9251475, 2, 0, 0),
+"vertex_count": 180,
+"vertex_data": PackedByteArray("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")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_uq77q")
 
 [node name="Treasure" type="StaticBody3D" unique_id=1774547254 groups=["treasure"]]
 collision_layer = 2
@@ -22,3 +62,48 @@ shape = SubResource("SphereShape3D_sri8j")
 
 [node name="TreasureModel" type="MeshInstance3D" parent="." unique_id=717186025]
 transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)
+
+[node name="rock_debris" type="Node3D" parent="TreasureModel" unique_id=1335649544]
+transform = Transform3D(0.49029267, 0, -0.068103515, 0, 0.495, 0, 0.068103515, 0, 0.49029267, 0.52490413, 0.2102609, 0.048602186)
+
+[node name="rock1" type="MeshInstance3D" parent="TreasureModel/rock_debris" unique_id=475307293]
+transform = Transform3D(0.43928337, -0.068392254, -0.77643067, 0.035544537, 0.8452373, -0.06282477, 0.77896833, 0, 0.4407191, -1.330605, -1.1302288, -1.4591206)
+mesh = SubResource("ArrayMesh_5gp2y")
+
+[node name="rock2" type="MeshInstance3D" parent="TreasureModel/rock_debris" unique_id=1819241804]
+transform = Transform3D(0.90867686, 0, -6.7055225e-08, 0, 0.86129594, 0, 6.7055225e-08, 0, 0.90867686, 0.55389, -0.9540247, 0.105679564)
+mesh = SubResource("ArrayMesh_5gp2y")
+
+[node name="rock4" type="MeshInstance3D" parent="TreasureModel/rock_debris" unique_id=1751900382]
+transform = Transform3D(0.52156734, -0.057742987, 0.7415862, -0.024931112, 0.856566, 0.09176989, -0.7436665, -0.06921384, 0.5170319, -1.0447056, -0.94263184, 1.6632934)
+mesh = SubResource("ArrayMesh_5gp2y")
+
+[node name="rock6" type="MeshInstance3D" parent="TreasureModel/rock_debris" unique_id=1762109147]
+transform = Transform3D(0.0062046796, -0.19113518, 0.68169487, 0, 0.64528555, 0.20193505, -0.71097296, -0.0016680416, 0.005949177, -0.18464392, -1.0632848, -1.1583014)
+mesh = SubResource("ArrayMesh_5gp2y")
+
+[node name="rock8" type="MeshInstance3D" parent="TreasureModel/rock_debris" unique_id=1268181083]
+transform = Transform3D(0.0044418946, -0.13689032, 0.4880207, 0, 0.462151, 0.14456393, -0.50898063, -0.0011946484, 0.0042589754, 0.69336593, -0.75070786, -0.85721534)
+mesh = SubResource("ArrayMesh_5gp2y")
+
+[node name="rock9" type="MeshInstance3D" parent="TreasureModel/rock_debris" unique_id=275910344]
+transform = Transform3D(-0.12772712, -0.13251536, 0.47242373, -3.1677516e-10, 0.46215078, 0.14456384, -0.4927137, 0.03435219, -0.122467294, 0.33971047, -0.9352699, 1.6594114)
+mesh = SubResource("ArrayMesh_5gp2y")
+
+[node name="rock10" type="MeshInstance3D" parent="TreasureModel/rock_debris" unique_id=1810760639]
+transform = Transform3D(0.004441954, -0.13689032, 0.48802075, 0, 0.46215066, 0.14456381, -0.5089807, -0.0011946615, 0.0042590275, -2.9411316, -0.8137891, 1.5076329)
+mesh = SubResource("ArrayMesh_5gp2y")
+
+[node name="rock7" type="MeshInstance3D" parent="TreasureModel/rock_debris" unique_id=1778564462]
+transform = Transform3D(-0.83338106, -0.09749954, 0.34725973, 1.4919564e-10, 0.82582706, 0.2580781, -0.36217427, 0.22435127, -0.799062, -2.773529, -1.1339712, -0.48840833)
+mesh = SubResource("ArrayMesh_5gp2y")
+
+[node name="rock3" type="MeshInstance3D" parent="TreasureModel/rock_debris" unique_id=31903506]
+transform = Transform3D(0.16163322, -0.08149237, 0.7004669, 0, 0.6808863, 0.088233404, -0.70572734, -0.018664237, 0.16042829, -2.5733795, -1.0639939, 0.7412368)
+mesh = SubResource("ArrayMesh_5gp2y")
+
+[node name="rock5" type="MeshInstance3D" parent="TreasureModel/rock_debris" unique_id=1481466309]
+transform = Transform3D(-0.5789111, -0.05020591, 0.43154448, 1.3921521e-10, 0.6808863, 0.08823338, -0.43478534, 0.066848524, -0.5745959, -2.2023878, -0.97058594, 1.687351)
+mesh = SubResource("ArrayMesh_5gp2y")
+
+[node name="american_ball_model" parent="TreasureModel" unique_id=1903947435 instance=ExtResource("2_0g4qu")]

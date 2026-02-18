@@ -377,7 +377,7 @@ mesh = SubResource("ArrayMesh_kgj1o")
 transform = Transform3D(0.5900608, 0, 0, 0, 0.5900608, 0, 0, 0, 0.5900608, 3.1218994, 0.9987287, -5.284853)
 mesh = SubResource("ArrayMesh_wprpo")
 
-[node name="Grinder" parent="." unique_id=293299376 instance=ExtResource("6_u3ehf")]
+[node name="Grinder" parent="." unique_id=293299376 groups=["grinder"] instance=ExtResource("6_u3ehf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.16146, 0, -5.206647)
 
 [node name="SpawnPoint" type="Marker3D" parent="." unique_id=1302489562]
