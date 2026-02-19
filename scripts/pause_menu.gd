@@ -1,7 +1,7 @@
 extends Control
 
-@onready var resume_btn: Button = $ColorRect/VBoxContainer/Resume_button
-@onready var quit_btn: Button = $ColorRect/VBoxContainer/Quit_button
+@onready var resume_btn: Button = $Panel/VBoxContainer/Resume_button
+@onready var quit_btn: Button = $Panel/VBoxContainer/Quit_button
 
 var is_open := false
 

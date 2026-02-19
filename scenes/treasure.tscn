@@ -1,7 +1,6 @@
 [gd_scene format=4 uid="uid://gqbkxvkchysv"]
 
 [ext_resource type="Script" uid="uid://dmnfnbmeuttje" path="res://scripts/treasure.gd" id="1_86quu"]
-[ext_resource type="PackedScene" uid="uid://31srmfgoga7g" path="res://assets/models/treasures/american_ball_model.glb" id="2_0g4qu"]
 [ext_resource type="Texture2D" uid="uid://bdg271a0xxdhs" path="res://assets/models/props/rock_debris_rock_debris_texture.png" id="3_wqbho"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_86quu"]
@@ -105,5 +104,3 @@ mesh = SubResource("ArrayMesh_5gp2y")
 [node name="rock5" type="MeshInstance3D" parent="TreasureModel/rock_debris" unique_id=1481466309]
 transform = Transform3D(-0.5789111, -0.05020591, 0.43154448, 1.3921521e-10, 0.6808863, 0.08823338, -0.43478534, 0.066848524, -0.5745959, -2.2023878, -0.97058594, 1.687351)
 mesh = SubResource("ArrayMesh_5gp2y")
-
-[node name="american_ball_model" parent="TreasureModel" unique_id=1903947435 instance=ExtResource("2_0g4qu")]

@@ -225,9 +225,9 @@ func give_beacon():
 	hud.show_beacon_held()
 
 	# Instancie un modèle 3D de balise dans les mains
-	beacon_instance = preload("res://assets/models/treasures/american_ball_model.glb").instantiate()
+	beacon_instance = preload("res://assets/models/props/sos_beacon.glb").instantiate()
 	$Player_Head/Player_Camera3D.add_child(beacon_instance)
-	beacon_instance.position = Vector3(0.3, -0.2, -0.5)
+	beacon_instance.position = Vector3(0.3, -0.5, -0.5)
 
 func _handle_beacon_placement():
 	if not has_beacon:
@@ -254,6 +254,8 @@ func _place_beacon():
 	# Instancie la balise dans le monde
 	var beacon_world = preload("res://scenes/beacon_placed.tscn").instantiate()
 	get_parent().add_child(beacon_world)
-	beacon_world.global_position = global_position + head.transform.basis.z * -2.0  # 2m devant
+	var pos = global_position + head.transform.basis.z * -2.0  # 2m devant
+	pos.y = 0
+	beacon_world.global_position = pos
 	
 	hud.hide_beacon_held()

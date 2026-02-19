@@ -1,10 +1,13 @@
 [gd_scene format=3 uid="uid://dbj18dixnkp24"]
 
+[ext_resource type="Theme" uid="uid://bogi18efs11xq" path="res://assets/dispensable_theme.tres" id="1_myx47"]
+[ext_resource type="Texture2D" uid="uid://c6twafh8rh5u" path="res://assets/Dispensable_logo_transparent.png" id="1_n87rw"]
+
 [sub_resource type="GDScript" id="GDScript_uahpa"]
 script/source = "extends Control
 
-@onready var resume_btn: Button = $ColorRect/VBoxContainer/Resume_button
-@onready var quit_btn: Button = $ColorRect/VBoxContainer/Quit_button
+@onready var resume_btn: Button = $Panel/VBoxContainer/Resume_button
+@onready var quit_btn: Button = $Panel/VBoxContainer/Quit_button
 
 var is_open := false
 
@@ -43,7 +46,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = SubResource("GDScript_uahpa")
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=2108224823]
+[node name="Panel" type="Panel" parent="." unique_id=1684706863]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -56,9 +59,9 @@ offset_right = 93.0
 offset_bottom = 100.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.05882353, 0.05882353, 0.05882353, 0.39215687)
+theme = ExtResource("1_myx47")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect" unique_id=789246138]
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel" unique_id=789246138]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -74,16 +77,31 @@ grow_vertical = 2
 theme_override_constants/separation = 20
 alignment = 1
 
-[node name="PauseMenu_label" type="Label" parent="ColorRect/VBoxContainer" unique_id=450572304]
+[node name="PauseMenu_label" type="Label" parent="Panel/VBoxContainer" unique_id=450572304]
 layout_mode = 2
-theme_override_font_sizes/font_size = 25
+theme = ExtResource("1_myx47")
 text = "Pause"
 horizontal_alignment = 1
 
-[node name="Resume_button" type="Button" parent="ColorRect/VBoxContainer" unique_id=2097122261]
+[node name="Resume_button" type="Button" parent="Panel/VBoxContainer" unique_id=2097122261]
 layout_mode = 2
+theme = ExtResource("1_myx47")
 text = "Resume"
 
-[node name="Quit_button" type="Button" parent="ColorRect/VBoxContainer" unique_id=461723258]
+[node name="Quit_button" type="Button" parent="Panel/VBoxContainer" unique_id=461723258]
 layout_mode = 2
+theme = ExtResource("1_myx47")
 text = "Quit"
+
+[node name="GameLogo" type="TextureRect" parent="." unique_id=366015540]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -425.0
+offset_right = 428.33423
+offset_bottom = 480.0
+grow_horizontal = 2
+mouse_filter = 0
+texture = ExtResource("1_n87rw")
+expand_mode = 1

@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://biw60qf5vrh6f"]
 
 [ext_resource type="Script" uid="uid://vlcvsh8in7x1" path="res://scripts/HUD.gd" id="1_qpvh6"]
+[ext_resource type="Theme" uid="uid://bogi18efs11xq" path="res://assets/dispensable_theme.tres" id="2_fls4u"]
 
 [node name="HUD" type="CanvasLayer" unique_id=282066520 groups=["hud"]]
 script = ExtResource("1_qpvh6")
@@ -70,6 +71,7 @@ offset_right = 51.5
 offset_bottom = -157.0
 grow_horizontal = 2
 grow_vertical = 0
+theme = ExtResource("2_fls4u")
 text = "Interact label"
 
 [node name="SOSLabel" type="Label" parent="HUD_Control" unique_id=1244147496]
@@ -123,5 +125,5 @@ offset_right = 175.0
 offset_bottom = 21.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/font_size = 30
+theme = ExtResource("2_fls4u")
 text = "You ran out of oxygen ..."

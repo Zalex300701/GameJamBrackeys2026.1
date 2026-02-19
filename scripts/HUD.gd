@@ -49,6 +49,7 @@ func add_to_list_item(treasure: TreasureData):
 		icon.custom_minimum_size = Vector2(32, 32)
 		item.add_child(icon)
 		var label = Label.new()
+		label.theme = preload("res://assets/dispensable_theme.tres")
 		label.text = treasure.treasure_name
 		item.add_child(label)
 		inventory_list.add_child(item)

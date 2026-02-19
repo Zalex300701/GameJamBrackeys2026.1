@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://biw60qf5vrh6f" path="res://scenes/HUD.tscn" id="3_kv8o0"]
 [ext_resource type="PackedScene" uid="uid://gqbkxvkchysv" path="res://scenes/treasure.tscn" id="4_gjpke"]
 [ext_resource type="Resource" uid="uid://1xtfba2ckd75" path="res://data/SOS_fragment.tres" id="6_vtmdq"]
+[ext_resource type="PackedScene" uid="uid://c6lo835munvmf" path="res://scenes/ghost.tscn" id="8_1xlfd"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_vtmdq"]
 seed = 13
@@ -111,3 +112,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.283107, -0.21, -8.760357)
 data = ExtResource("6_vtmdq")
 
 [node name="HUD" parent="." unique_id=282066520 instance=ExtResource("3_kv8o0")]
+
+[node name="Ghost" parent="." unique_id=953807018 instance=ExtResource("8_1xlfd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.722847, 9.536743e-07, 9.455283)
