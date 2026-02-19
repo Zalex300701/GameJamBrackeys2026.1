@@ -30,7 +30,7 @@ const OXYGEN_DRAIN = 1.5
 const OXYGEN_REGEN = 20.0
 
 # Detector
-@onready var detector = $Detector
+@onready var detector = $Player_Head/Player_Camera3D/Detector
 var dig_cooldown: float = 0.0
 const DIG_COOLDOWN: float = 0.3
 
@@ -42,6 +42,7 @@ var is_dead: bool = false
 var sos_fragments: int = 0
 var has_beacon: bool = false
 var beacon_instance = null
+var can_pause: bool = true
 
 func _ready():
 	add_to_group("player")
@@ -49,14 +50,19 @@ func _ready():
 	if particles_node:
 		remote_transform_3d.set_remote_node(particles_node.get_path())
 
-func _unhandled_input(event):
+func _input(event):
 	if event is InputEventMouseMotion:
 		head.rotate_y(-event.relative.x * SENSITIVITY)
 		camera.rotate_x(-event.relative.y * SENSITIVITY)
 		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-80), deg_to_rad(80))
-	if event.is_action_pressed("ui_cancel") and not is_dead:
-		pause_menu.toggle()
-		get_viewport().set_input_as_handled()
+	if event.is_action_pressed("ui_cancel"):
+		print("UI_CANCEL détecté ! can_pause:", can_pause, " is_dead:", is_dead)
+		if can_pause and not is_dead:
+			print("On va appeler toggle()")
+			pause_menu.toggle()
+			get_viewport().set_input_as_handled()
+		else:
+			print("Bloqué par can_pause ou is_dead")
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -133,9 +139,6 @@ func add_inventory_item(treasure: TreasureData):
 	
 	if treasure.is_sos_fragment:
 		sos_fragments += 1
-		hud.update_sos_count(sos_fragments)
-		if sos_fragments >= 3:
-			print("Tous les fragments collectés ! Construisez la balise !")
 
 func _handle_interaction():
 	if has_beacon:
@@ -220,9 +223,9 @@ func _respawn():
 
 func give_beacon():
 	has_beacon = true
-	sos_fragments = 0  # retire les fragments
-	hud.update_sos_count(0)
+	sos_fragments = 0
 	hud.show_beacon_held()
+	detector.visible = false
 
 	# Instancie un modèle 3D de balise dans les mains
 	beacon_instance = preload("res://assets/models/props/sos_beacon.glb").instantiate()

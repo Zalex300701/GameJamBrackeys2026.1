@@ -3,7 +3,7 @@ extends StaticBody3D
 var upgrade_costs = [100, 1000]
 
 func interact(player):
-	var detector = player.get_node("Detector")
+	var detector = get_tree().get_first_node_in_group("detector")
 	var current_level = detector.get_level()
 
 	if current_level >= 3:
@@ -21,7 +21,7 @@ func interact(player):
 		print("Pas assez d'argent ! Coût : $", cost)
 
 func get_interact_text() -> String:
-	var detector = get_tree().get_first_node_in_group("player").get_node("Detector")
+	var detector = get_tree().get_first_node_in_group("detector")
 	var current_level = detector.get_level()
 	if current_level >= 3:
 		return "Détecteur au niveau max"

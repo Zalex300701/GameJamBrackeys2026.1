@@ -8,7 +8,6 @@ extends CanvasLayer
 @onready var death_label = $Death_Control/DeathLabel
 @onready var interact_label: Label = $HUD_Control/InteractLabel
 var current_interact_text = ""
-@onready var sos_label = $HUD_Control/SOSLabel
 @onready var beacon_held_label = $HUD_Control/BeaconHeldLabel
 
 var hud_items = {}
@@ -20,8 +19,8 @@ func _ready():
 	death_label.modulate.a = 0.0
 	interact_label.modulate.a = 0.0
 	interact_label.visible = false
-	sos_label.text = "Fragments SOS: 0/3"
 	beacon_held_label.visible = false
+	dollars_label.text = "0 $"
 
 func update_oxygen(value: float):
 	oxygen_bar.value = value
@@ -30,7 +29,7 @@ func add_to_list(item : HBoxContainer):
 	inventory_list.add_child(item)
 
 func update_dollars(amount: int):
-	dollars_label.text = "$" + str(amount)
+	dollars_label.text = str(amount) + "$"
 
 func remove_inventory_item(hbox: HBoxContainer):
 	var tween = create_tween()
@@ -44,6 +43,7 @@ func add_to_list_item(treasure: TreasureData):
 		entry.label.text = treasure.treasure_name + " x" + str(entry.count)
 	else:
 		var item = HBoxContainer.new()
+		item.theme = preload("res://assets/dispensable_theme.tres")
 		var icon = TextureRect.new()
 		icon.texture = treasure.icon
 		icon.custom_minimum_size = Vector2(32, 32)
@@ -115,11 +115,6 @@ func hide_interact_prompt():
 	var tween = create_tween()
 	tween.tween_property(interact_label, "modulate:a", 0.0, 0.15)
 	tween.tween_callback(func(): interact_label.visible = false)
-
-func update_sos_count(count: int):
-	sos_label.text = "Fragments SOS: " + str(count) + "/3"
-	if count >= 3:
-		sos_label.modulate = Color.GREEN
 
 func show_beacon_held():
 	beacon_held_label.visible = true

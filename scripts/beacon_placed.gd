@@ -15,6 +15,7 @@ func _start_horror_sequence():
 	# Désactive le contrôle du joueur
 	var player = get_tree().get_first_node_in_group("player")
 	player.set_physics_process(false)
+	player.can_pause = false
 	
 	# Effets horrifiques
 	await get_tree().create_timer(2.0).timeout
@@ -27,7 +28,7 @@ func _end_game():
 	var player = get_tree().get_first_node_in_group("player")
 	player.hud.fade_to_black()
 	await get_tree().create_timer(3.0).timeout
-	get_tree().change_scene_to_file("res://scenes/end_credits.tscn")
+	get_tree().change_scene_to_file("res://scenes/game_test.tscn")
 
 func get_interact_text() -> String:
 	if is_activated:

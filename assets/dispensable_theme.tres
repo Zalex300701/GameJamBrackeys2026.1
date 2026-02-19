@@ -2,6 +2,7 @@
 
 [ext_resource type="FontFile" uid="uid://derja33vylvpu" path="res://assets/fonts/Kanit-Italic.ttf" id="1_rn3ud"]
 [ext_resource type="FontFile" uid="uid://dmddo8pnb6grt" path="res://assets/fonts/Kanit-ExtraLight.ttf" id="2_rn3ud"]
+[ext_resource type="FontFile" uid="uid://c5lyhd03uto7q" path="res://assets/fonts/Kanit-Regular.ttf" id="3_uy2ig"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uu2bk"]
 
@@ -21,10 +22,24 @@ border_width_right = 10
 border_width_bottom = 10
 border_color = Color(0.6509804, 0.7176471, 0.95686275, 0.5882353)
 border_blend = true
+corner_radius_top_left = 40
+corner_radius_top_right = 40
+corner_radius_bottom_right = 40
+corner_radius_bottom_left = 40
+corner_detail = 10
 expand_margin_left = 5.0
 expand_margin_top = 5.0
 expand_margin_right = 5.0
 expand_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uu2bk"]
+bg_color = Color(0.3019608, 0.65882355, 0.7647059, 1)
+border_color = Color(0.29171127, 0.43414998, 0.8444773, 1)
+corner_radius_top_left = 36
+corner_radius_top_right = 36
+corner_radius_bottom_right = 36
+corner_radius_bottom_left = 36
+corner_detail = 10
 
 [resource]
 Button/colors/font_hover_color = Color(0.8235294, 0.8156863, 0.43137255, 1)
@@ -35,6 +50,13 @@ Button/styles/focus = SubResource("StyleBoxEmpty_x3e14")
 Button/styles/hover = SubResource("StyleBoxEmpty_ufo0e")
 Button/styles/normal = SubResource("StyleBoxEmpty_vbbmd")
 Button/styles/pressed = SubResource("StyleBoxEmpty_dxt4g")
+HBoxContainer/constants/separation = 20
 Label/font_sizes/font_size = 30
 Label/fonts/font = ExtResource("2_rn3ud")
 Panel/styles/panel = SubResource("StyleBoxFlat_rn3ud")
+ProgressBar/colors/font_color = Color(0.7197092, 0.91298246, 0.9138541, 1)
+ProgressBar/colors/font_outline_color = Color(0.35933197, 0.5577739, 1, 1)
+ProgressBar/font_sizes/font_size = 30
+ProgressBar/fonts/font = ExtResource("3_uy2ig")
+ProgressBar/styles/background = SubResource("StyleBoxFlat_rn3ud")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_uu2bk")

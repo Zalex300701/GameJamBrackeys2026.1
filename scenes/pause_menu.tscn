@@ -9,6 +9,8 @@ script/source = "extends Control
 @onready var resume_btn: Button = $Panel/VBoxContainer/Resume_button
 @onready var quit_btn: Button = $Panel/VBoxContainer/Quit_button
 
+var can_pause: bool = true
+
 var is_open := false
 
 func _ready() -> void:
@@ -16,6 +18,10 @@ func _ready() -> void:
 	resume_btn.pressed.connect(_on_resume)
 	if quit_btn:
 		quit_btn.pressed.connect(_on_quit)
+
+func _input(event):
+	if event.is_action_pressed(\"ui_cancel\") and can_pause:  # ← vérifie can_pause
+		toggle()
 
 func toggle() -> void:
 	is_open = !is_open

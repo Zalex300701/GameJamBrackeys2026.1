@@ -7,7 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://biw60qf5vrh6f" path="res://scenes/HUD.tscn" id="3_kv8o0"]
 [ext_resource type="PackedScene" uid="uid://gqbkxvkchysv" path="res://scenes/treasure.tscn" id="4_gjpke"]
 [ext_resource type="Resource" uid="uid://1xtfba2ckd75" path="res://data/SOS_fragment.tres" id="6_vtmdq"]
+[ext_resource type="Resource" uid="uid://jpgkp5vjvc05" path="res://data/precious_material.tres" id="7_g7rj4"]
 [ext_resource type="PackedScene" uid="uid://c6lo835munvmf" path="res://scenes/ghost.tscn" id="8_1xlfd"]
+[ext_resource type="Resource" uid="uid://c007e1511ptm1" path="res://data/bone.tres" id="8_34mg1"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_vtmdq"]
 seed = 13
@@ -110,6 +112,14 @@ data = ExtResource("6_vtmdq")
 [node name="Treasure3" parent="Environment" unique_id=1757671613 instance=ExtResource("4_gjpke")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.283107, -0.21, -8.760357)
 data = ExtResource("6_vtmdq")
+
+[node name="Treasure4" parent="Environment" unique_id=531910269 instance=ExtResource("4_gjpke")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.361576, -0.21, -8.760357)
+data = ExtResource("7_g7rj4")
+
+[node name="Treasure5" parent="Environment" unique_id=1690579275 instance=ExtResource("4_gjpke")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.356266, -0.21, -16.24504)
+data = ExtResource("8_34mg1")
 
 [node name="HUD" parent="." unique_id=282066520 instance=ExtResource("3_kv8o0")]
 
