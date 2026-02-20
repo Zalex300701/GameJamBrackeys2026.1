@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="TreasureData" format=3 uid="uid://dq5fkjgnf4qf1"]
+
+[ext_resource type="Texture2D" uid="uid://bfvgnxgif7h6c" path="res://assets/icons/treasures/wood_planks_icon.png" id="1_liptn"]
+[ext_resource type="PackedScene" uid="uid://bp10wioaxy1rm" path="res://assets/models/treasures/wood_planks.glb" id="2_6m5xc"]
+[ext_resource type="Script" uid="uid://bl4wsg8gsbb6e" path="res://scripts/treasure_data.gd" id="3_vadrw"]
+
+[resource]
+script = ExtResource("3_vadrw")
+treasure_name = "Wood planks"
+scene_3d = ExtResource("2_6m5xc")
+icon = ExtResource("1_liptn")
+value = 5
+digs_required = 10
+metadata/_custom_type_script = "uid://bl4wsg8gsbb6e"

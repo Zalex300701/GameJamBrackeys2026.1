@@ -10,6 +10,8 @@
 [ext_resource type="Resource" uid="uid://jpgkp5vjvc05" path="res://data/precious_material.tres" id="7_g7rj4"]
 [ext_resource type="PackedScene" uid="uid://c6lo835munvmf" path="res://scenes/ghost.tscn" id="8_1xlfd"]
 [ext_resource type="Resource" uid="uid://c007e1511ptm1" path="res://data/bone.tres" id="8_34mg1"]
+[ext_resource type="Resource" uid="uid://i3i6xr3bec7c" path="res://data/doll.tres" id="8_opprt"]
+[ext_resource type="Resource" uid="uid://dq5fkjgnf4qf1" path="res://data/wood_planks.tres" id="9_opprt"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_vtmdq"]
 seed = 13
@@ -115,6 +117,22 @@ data = ExtResource("6_vtmdq")
 
 [node name="Treasure4" parent="Environment" unique_id=531910269 instance=ExtResource("4_gjpke")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.361576, -0.21, -8.760357)
+data = ExtResource("7_g7rj4")
+
+[node name="Treasure6" parent="Environment" unique_id=861794851 instance=ExtResource("4_gjpke")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.218774, -0.21, 0.13343811)
+data = ExtResource("7_g7rj4")
+
+[node name="Treasure8" parent="Environment" unique_id=1124838747 instance=ExtResource("4_gjpke")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.218774, -0.21, 1.6475482)
+data = ExtResource("8_opprt")
+
+[node name="Treasure9" parent="Environment" unique_id=578755 instance=ExtResource("4_gjpke")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.218774, -0.21, -1.6174908)
+data = ExtResource("9_opprt")
+
+[node name="Treasure7" parent="Environment" unique_id=1144648447 instance=ExtResource("4_gjpke")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.7672443, -0.21, -7.541878)
 data = ExtResource("7_g7rj4")
 
 [node name="Treasure5" parent="Environment" unique_id=1690579275 instance=ExtResource("4_gjpke")]

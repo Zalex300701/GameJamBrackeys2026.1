@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="TreasureData" format=3 uid="uid://dyefwiga8fegh"]
+
+[ext_resource type="Texture2D" uid="uid://ceybevhmhn8m" path="res://assets/icons/treasures/dirt_icon.png" id="1_cudt4"]
+[ext_resource type="PackedScene" uid="uid://bn6xmweyu1wwl" path="res://assets/models/treasures/dirt.glb" id="2_prffn"]
+[ext_resource type="Script" uid="uid://bl4wsg8gsbb6e" path="res://scripts/treasure_data.gd" id="3_xj675"]
+
+[resource]
+script = ExtResource("3_xj675")
+treasure_name = "Dirt"
+scene_3d = ExtResource("2_prffn")
+icon = ExtResource("1_cudt4")
+value = 5
+digs_required = 10
+metadata/_custom_type_script = "uid://bl4wsg8gsbb6e"

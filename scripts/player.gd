@@ -170,7 +170,6 @@ func _grind_next(items: Array, index: int):
 		await grinder.grind_finished
 	
 	hud.remove_last_of(treasure.treasure_name)
-	await get_tree().create_timer(2.5).timeout
 	total_dollars += treasure.value
 	hud.update_dollars(total_dollars)
 	await get_tree().create_timer(0.5).timeout

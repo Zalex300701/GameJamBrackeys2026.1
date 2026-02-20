@@ -23,15 +23,15 @@ func spawn_and_grind_treasure(treasure_data: TreasureData):
 		treasure_spawnpoint.add_child(treasure_mesh)
 		treasure_mesh.position = Vector3.ZERO
 		treasure_mesh.scale = Vector3(0.3, 0.3, 0.3)
-
+		
 		
 		grind_animation.play("grind")
 		
 		var tween = create_tween()
-		tween.tween_property(treasure_mesh, "position", Vector3(0, -0.5, 0), 1.8)
+		tween.tween_property(treasure_mesh, "position", Vector3(0, -0.5, 0), 3.0)
 		tween.tween_callback(treasure_mesh.queue_free)
 		
-		await anim_player.animation_finished
+		await get_tree().create_timer(grind_animation.current_animation_length).timeout
 		grind_finished.emit()
 
 func play_death_animation():

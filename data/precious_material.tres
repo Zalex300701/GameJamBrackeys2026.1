@@ -10,5 +10,5 @@ treasure_name = "Precious material"
 scene_3d = ExtResource("2_k0vl8")
 icon = ExtResource("1_x271f")
 value = 5
-digs_required = 10
+digs_required = 1
 metadata/_custom_type_script = "uid://bl4wsg8gsbb6e"
