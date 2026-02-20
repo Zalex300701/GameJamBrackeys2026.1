@@ -12,5 +12,5 @@ icon = ExtResource("1_8g37b")
 value = 20
 digs_required = 10
 required_detector_level = 2
-spawn_ghost = true
+is_ghost = true
 metadata/_custom_type_script = "uid://bl4wsg8gsbb6e"

@@ -44,11 +44,19 @@ var has_beacon: bool = false
 var beacon_instance = null
 var can_pause: bool = true
 
+@onready var computer = null
+
 func _ready():
 	add_to_group("player")
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	if particles_node:
 		remote_transform_3d.set_remote_node(particles_node.get_path())
+	
+	await get_tree().process_frame
+	computer = get_tree().get_first_node_in_group("pc")
+	if computer:
+		await get_tree().create_timer(2.0).timeout
+		computer.play_dialog("Welcome to the Cleaning base 2779. Thank you for contributing to this wonderful project.", preload("res://assets/sounds/voices/Line1.ogg"))
 
 func _input(event):
 	if event is InputEventMouseMotion:
@@ -135,6 +143,17 @@ func add_inventory_item(treasure: TreasureData):
 	
 	if treasure.is_sos_fragment:
 		sos_fragments += 1
+	
+	if treasure.is_ghost:
+		var ghost_scene = preload("res://scenes/ghost.tscn")
+		var ghost = ghost_scene.instantiate()
+		get_tree().root.add_child(ghost)
+		var player = get_tree().get_first_node_in_group("player")
+		var random_angle = randf() * TAU  # angle aléatoire
+		var spawn_distance = randf_range(10.0, 15.0)
+		var offset = Vector3(cos(random_angle), 0, sin(random_angle)) * spawn_distance
+		ghost.global_position = player.global_position + offset
+		ghost.start_chase()
 
 func _handle_interaction():
 	if has_beacon:
@@ -178,6 +197,17 @@ func _grind_next(items: Array, index: int):
 func grind_all():
 	if is_grinding or inventory_items.is_empty():
 		return
+	
+	if computer:
+		var grind_dialogues = [
+			{"text": "Good job.", "audio": preload("res://assets/sounds/voices/Line2.ogg")},
+			{"text": "Well done.", "audio": preload("res://assets/sounds/voices/Line3.ogg")},
+			{"text": "Excellent work.", "audio": preload("res://assets/sounds/voices/Line4.ogg")},
+			{"text": "Remarkable results.", "audio": preload("res://assets/sounds/voices/Line5.ogg")}
+			]
+		var random_dialog = grind_dialogues[randi() % grind_dialogues.size()]
+		computer.play_dialog(random_dialog.text, random_dialog.audio)
+	
 	is_grinding = true
 	var items_to_grind = []
 	for item in inventory_items:

@@ -11,5 +11,4 @@ scene_3d = ExtResource("2_vakvf")
 icon = ExtResource("1_l5oxv")
 value = 5
 digs_required = 10
-required_detector_level = 3
 metadata/_custom_type_script = "uid://bl4wsg8gsbb6e"

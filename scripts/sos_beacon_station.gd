@@ -2,6 +2,7 @@ extends StaticBody3D
 
 func interact(player):
 	if player.sos_fragments >= 3:
+		player.computer.play_dialog("Make sure to grind all your items.", preload("res://assets/sounds/voices/Line8.ogg"))
 		player.give_beacon()
 	else:
 		print("Il manque ", 3 - player.sos_fragments, " fragment(s)")

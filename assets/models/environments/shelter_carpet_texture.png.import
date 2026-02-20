@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bwk3fr8a5brou"
-path.s3tc="res://.godot/imported/shelter_shelter_texture.png-af448c61691e62a36aa71822f2b6a569.s3tc.ctex"
+uid="uid://4omqtl62bcql"
+path.s3tc="res://.godot/imported/shelter_carpet_texture.png-7caa960283875f67b68dac8fdaf6f21f.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "57a1dc3056d1abe78afdc524ec8d32db"
+"md5": "68d2aefdb3e721dcee8d0210aa5f27a9"
 }
 
 [deps]
 
-source_file="res://assets/models/environments/shelter_shelter_texture.png"
-dest_files=["res://.godot/imported/shelter_shelter_texture.png-af448c61691e62a36aa71822f2b6a569.s3tc.ctex"]
+source_file="res://assets/models/environments/shelter_carpet_texture.png"
+dest_files=["res://.godot/imported/shelter_carpet_texture.png-7caa960283875f67b68dac8fdaf6f21f.s3tc.ctex"]
 
 [params]
 

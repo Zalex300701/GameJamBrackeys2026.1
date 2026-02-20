@@ -240,7 +240,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.029962305, 0.7397045, -0.3
 mesh = SubResource("ArrayMesh_yeq3e")
 
 [node name="Grinder_rollers_front" type="MeshInstance3D" parent="." unique_id=1978996770]
-transform = Transform3D(0.9999923, -0.0038844598, 0.0006849625, 2.6220174e-08, -0.17364833, -0.98480785, 0.0039443895, 0.9848, -0.173647, 0.035287622, 0.74264693, 0.07568565)
+transform = Transform3D(0.9999923, -0.0038844596, 0.0006849625, 2.6220174e-08, -0.17364833, -0.98480785, 0.0039443895, 0.9847999, -0.173647, 0.035287622, 0.74264693, 0.07568565)
 mesh = SubResource("ArrayMesh_yeq3e")
 
 [node name="GrinderDeathAnimation" type="Node3D" parent="." unique_id=1030833141]

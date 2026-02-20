@@ -16,6 +16,11 @@ func interact(player):
 		player.total_dollars -= cost
 		player.hud.update_dollars(player.total_dollars)
 		detector.upgrade()
+		
+		if current_level == 1:
+			player.computer.play_dialog("Your detector is much more stronger now. You will find deeper specimens.", preload("res://assets/sounds/voices/Line6.ogg"))
+		elif current_level:
+			player.computer.play_dialog("This is a massive upgrade. Beware, your next findings  may be unusual.", preload("res://assets/sounds/voices/Line7.ogg"))
 		print("Détecteur upgradé au niveau ", detector.get_level(), " !")
 	else:
 		print("Pas assez d'argent ! Coût : $", cost)

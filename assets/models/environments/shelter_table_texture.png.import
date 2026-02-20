@@ -2,14 +2,14 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://beoyyqo4wmrxs"
+uid="uid://brmj0m8vkw8uj"
 path.s3tc="res://.godot/imported/shelter_table_texture.png-0083e44d330adee3bb9164bf59834396.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "c5096c24bdb4a05f44ca70725b42c808"
+"md5": "826f134311050bc39dbf78b02ab8322f"
 }
 
 [deps]

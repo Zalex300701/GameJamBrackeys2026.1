@@ -2,14 +2,14 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bpkjndpd13rhv"
+uid="uid://dw250becsqdr6"
 path.s3tc="res://.godot/imported/shelter_rollers_texture.png-7e48fd7ed9c23d5319bd8ee2402dd5c1.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "a7a314475531ae198ca177e97cffb9f5"
+"md5": "52d8c2ed998cff26d0db1fe9f6e30e07"
 }
 
 [deps]
