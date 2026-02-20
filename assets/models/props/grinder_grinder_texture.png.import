@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cgahqjioo3la"
-path.s3tc="res://.godot/imported/grinder_rollers_texture.png-b72c68c0a0a31bbf37e566ad3c607fde.s3tc.ctex"
+uid="uid://5mct0nj13sg1"
+path.s3tc="res://.godot/imported/grinder_grinder_texture.png-c6ec4aec101b92c6f09ab066cebd0fcf.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "a7a314475531ae198ca177e97cffb9f5"
+"md5": "aaed963d5eb80d26ef6855f18b667ce6"
 }
 
 [deps]
 
-source_file="res://assets/models/props/grinder_rollers_texture.png"
-dest_files=["res://.godot/imported/grinder_rollers_texture.png-b72c68c0a0a31bbf37e566ad3c607fde.s3tc.ctex"]
+source_file="res://assets/models/props/grinder_grinder_texture.png"
+dest_files=["res://.godot/imported/grinder_grinder_texture.png-c6ec4aec101b92c6f09ab066cebd0fcf.s3tc.ctex"]
 
 [params]
 

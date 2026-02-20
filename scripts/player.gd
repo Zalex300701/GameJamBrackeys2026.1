@@ -56,13 +56,9 @@ func _input(event):
 		camera.rotate_x(-event.relative.y * SENSITIVITY)
 		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-80), deg_to_rad(80))
 	if event.is_action_pressed("ui_cancel"):
-		print("UI_CANCEL détecté ! can_pause:", can_pause, " is_dead:", is_dead)
 		if can_pause and not is_dead:
-			print("On va appeler toggle()")
 			pause_menu.toggle()
 			get_viewport().set_input_as_handled()
-		else:
-			print("Bloqué par can_pause ou is_dead")
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -167,6 +163,12 @@ func _grind_next(items: Array, index: int):
 		is_grinding = false
 		return
 	var treasure = items[index]
+	
+	var grinder = get_tree().get_first_node_in_group("grinder")
+	if grinder:
+		grinder.spawn_and_grind_treasure(treasure)
+		await grinder.grind_finished
+	
 	hud.remove_last_of(treasure.treasure_name)
 	await get_tree().create_timer(2.5).timeout
 	total_dollars += treasure.value

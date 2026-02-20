@@ -12,8 +12,6 @@ func _ready() -> void:
 		quit_btn.pressed.connect(_on_quit)
 
 func toggle() -> void:
-	assert(false, "Toggle appelé depuis quelque part !")  # ← le jeu va crasher et te montrer la stack trace
-	print("Toggle appelé ! is_open avant: ", is_open)
 	is_open = !is_open
 	visible = is_open
 

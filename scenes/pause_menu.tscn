@@ -1,46 +1,8 @@
 [gd_scene format=3 uid="uid://dbj18dixnkp24"]
 
+[ext_resource type="Script" uid="uid://ddtqs3lpmv0lk" path="res://scripts/pause_menu.gd" id="1_kukqi"]
 [ext_resource type="Theme" uid="uid://bogi18efs11xq" path="res://assets/dispensable_theme.tres" id="1_myx47"]
 [ext_resource type="Texture2D" uid="uid://c6twafh8rh5u" path="res://assets/Dispensable_logo_transparent.png" id="1_n87rw"]
-
-[sub_resource type="GDScript" id="GDScript_uahpa"]
-script/source = "extends Control
-
-@onready var resume_btn: Button = $Panel/VBoxContainer/Resume_button
-@onready var quit_btn: Button = $Panel/VBoxContainer/Quit_button
-
-var can_pause: bool = true
-
-var is_open := false
-
-func _ready() -> void:
-	visible = false
-	resume_btn.pressed.connect(_on_resume)
-	if quit_btn:
-		quit_btn.pressed.connect(_on_quit)
-
-func _input(event):
-	if event.is_action_pressed(\"ui_cancel\") and can_pause:  # ← vérifie can_pause
-		toggle()
-
-func toggle() -> void:
-	is_open = !is_open
-	visible = is_open
-
-	get_tree().paused = is_open
-
-	if is_open:
-		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-	else:
-		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-
-func _on_resume() -> void:
-	if is_open:
-		toggle()
-
-func _on_quit() -> void:
-	get_tree().quit()
-"
 
 [node name="PauseMenu" type="Control" unique_id=2036292017]
 process_mode = 3
@@ -50,7 +12,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = SubResource("GDScript_uahpa")
+script = ExtResource("1_kukqi")
 
 [node name="Panel" type="Panel" parent="." unique_id=1684706863]
 layout_mode = 1
