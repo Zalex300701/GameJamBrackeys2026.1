@@ -2,6 +2,9 @@ extends StaticBody3D
 
 var is_activated: bool = false
 
+@onready var ambience: AudioStreamPlayer = $Ambience
+@onready var neck: AudioStreamPlayer = $Neck
+
 func interact(player):
 	if not is_activated:
 		_activate(player)
@@ -30,15 +33,18 @@ func _start_horror_sequence(player):
 	
 	# Phase 2 : Coupure électrique totale
 	_power_outage(player)
+	await get_tree().create_timer(0.5).timeout
 	
 	await get_tree().create_timer(3.0).timeout
-	
+	ambience.play()
 	# Phase 3 : Spawn des ennemis (10 secondes)
 	_spawn_enemies(player)
 	
 	await get_tree().create_timer(25.0).timeout
 	
 	# Phase 4 : Écran noir + crédits
+	ambience.stop()
+	
 	_end_credits(player)
 
 func _power_outage(player):
@@ -52,7 +58,7 @@ func _power_outage(player):
 		tween.tween_property(torch, "light_energy", 0.0, 1.0)
 	
 	# Son de coupure électrique
-	# AudioManager.play_sfx(preload("res://sounds/power_off.ogg"))
+	AudioManager.play_sfx(preload("res://assets/sounds/power_off.ogg"))
 
 func _spawn_enemies(player):
 	var ghost_scene = preload("res://scenes/ghost.tscn")
@@ -76,8 +82,9 @@ func _end_credits(player):
 	# Fade to black brutal
 	player.hud.fade_to_black_instant()
 	
-	await get_tree().create_timer(2.0).timeout
-	
+	await get_tree().create_timer(1.0).timeout
+	neck.play()
+	await get_tree().create_timer(1.0).timeout
 	# Change vers la scène de crédits
 	get_tree().change_scene_to_file("res://scenes/credits.tscn")
 

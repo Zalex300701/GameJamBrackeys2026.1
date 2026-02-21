@@ -119,9 +119,6 @@ func _physics_process(delta: float) -> void:
 		
 		_handle_digging(delta)
 		_handle_interaction()
-		
-		if has_beacon:
-			_handle_beacon_placement()
 
 func _headbob(time) -> Vector3:
 	var pos = Vector3.ZERO
@@ -163,15 +160,20 @@ func add_inventory_item(treasure: TreasureData):
 		ghost.start_chase()
 
 func _handle_interaction():
-	if has_beacon:
-		return
-	
 	var ray = $Player_Head/Player_Camera3D/Player_RayCast3D
-	
+
 	if ray.is_colliding():
 		var hit = ray.get_collider()
-		if hit.has_method("interact"):
-			# Affiche le prompt selon l'objet
+		
+		if has_beacon:
+			print("Has beacon = true")
+			if hit and hit.is_in_group("door_button"):
+				pass
+			else:
+				_handle_beacon_placement()
+				return
+		
+		if hit and hit.has_method("interact"):
 			if hit.has_method("get_interact_text"):
 				hud.show_interact_prompt(hit.get_interact_text())
 			else:
@@ -180,9 +182,13 @@ func _handle_interaction():
 			if Input.is_action_just_pressed("interact"):
 				hit.interact(self)
 		else:
+			print("Hit n'a pas interact")
 			hud.hide_interact_prompt()
 	else:
-		hud.hide_interact_prompt()
+		if has_beacon:
+			_handle_beacon_placement()
+		else:
+			hud.hide_interact_prompt()
 
 func _grind_next(items: Array, index: int):
 	if index >= items.size():
@@ -281,6 +287,7 @@ func give_beacon():
 	beacon_instance = preload("res://assets/models/props/sos_beacon.glb").instantiate()
 	$Player_Head/Player_Camera3D.add_child(beacon_instance)
 	beacon_instance.position = Vector3(0.3, -0.5, -0.5)
+	
 
 func _apply_preview_material(mat: Material):
 	for child in beacon_preview.get_children():

@@ -7,6 +7,7 @@ signal death_animation_triggered
 @onready var treasure_spawnpoint: Marker3D = $TreasureSpawnpoint
 @onready var death_anim = $GrinderDeathAnimation
 @onready var anim_player = $GrinderDeathAnimation/ArmAnimation
+@onready var grind: AudioStreamPlayer3D = $Grind
 
 func _ready() -> void:
 	death_anim.visible = false
@@ -24,8 +25,8 @@ func spawn_and_grind_treasure(treasure_data: TreasureData):
 		treasure_mesh.position = Vector3.ZERO
 		treasure_mesh.scale = Vector3(0.3, 0.3, 0.3)
 		
-		
 		grind_animation.play("grind")
+		grind.play()
 		
 		var tween = create_tween()
 		tween.tween_property(treasure_mesh, "position", Vector3(0, -0.5, 0), 3.0)
@@ -37,4 +38,5 @@ func spawn_and_grind_treasure(treasure_data: TreasureData):
 func play_death_animation():
 	if death_anim:
 		death_anim.visible = true
+		grind.play()
 		anim_player.play("arm_grinded")

@@ -1,6 +1,8 @@
 [gd_scene format=4 uid="uid://ycbqe5w74tpb"]
 
 [ext_resource type="Script" uid="uid://dvghcvbw4aeiu" path="res://scripts/beacon_placed.gd" id="1_xpdt6"]
+[ext_resource type="AudioStream" uid="uid://dpr8qns74i8mp" path="res://assets/sounds/ambience.ogg" id="2_f05t1"]
+[ext_resource type="AudioStream" uid="uid://jdwqlb6d5vm6" path="res://assets/sounds/neck_snap.ogg" id="3_lmxc7"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_jysxc"]
 size = Vector3(0.5, 0.90000004, 0.5)
@@ -91,3 +93,9 @@ shape = SubResource("BoxShape3D_jysxc")
 [node name="SOS_Beacon" type="MeshInstance3D" parent="." unique_id=1255699781]
 transform = Transform3D(-0.014492977, 0, 0.044824034, 0, 0.02968684, 0, -0.025102569, 0, -0.025879173, 0.09055252, 0.21984628, -0.052280523)
 mesh = SubResource("ArrayMesh_yo1da")
+
+[node name="Ambience" type="AudioStreamPlayer" parent="." unique_id=146371444]
+stream = ExtResource("2_f05t1")
+
+[node name="Neck" type="AudioStreamPlayer" parent="." unique_id=2001027181]
+stream = ExtResource("3_lmxc7")

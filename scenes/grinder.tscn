@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://5mct0nj13sg1" path="res://assets/models/props/grinder_grinder_texture.png" id="2_0nu6o"]
 [ext_resource type="Texture2D" uid="uid://dcyawd5vb0v5t" path="res://assets/models/props/grinder_roller_rollers_texture.png" id="3_0nu6o"]
 [ext_resource type="Texture2D" uid="uid://gtbe61tc4bkn" path="res://assets/models/props/arm_arm_texture.png" id="4_0nu6o"]
+[ext_resource type="AudioStream" uid="uid://d0iabe4etlvvv" path="res://assets/sounds/grind.ogg" id="5_mfg8j"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_0nu6o"]
 size = Vector3(2, 1, 1)
@@ -240,7 +241,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.029962305, 0.7397045, -0.3
 mesh = SubResource("ArrayMesh_yeq3e")
 
 [node name="Grinder_rollers_front" type="MeshInstance3D" parent="." unique_id=1978996770]
-transform = Transform3D(0.9999923, -0.0038844596, 0.0006849625, 2.6220174e-08, -0.17364833, -0.98480785, 0.0039443895, 0.9847999, -0.173647, 0.035287622, 0.74264693, 0.07568565)
+transform = Transform3D(0.9999923, -0.0038844594, 0.0006849625, 2.6220174e-08, -0.17364831, -0.98480785, 0.0039443895, 0.98479986, -0.173647, 0.035287622, 0.74264693, 0.07568565)
 mesh = SubResource("ArrayMesh_yeq3e")
 
 [node name="GrinderDeathAnimation" type="Node3D" parent="." unique_id=1030833141]
@@ -258,3 +259,8 @@ libraries/ = SubResource("AnimationLibrary_2v1nh")
 
 [node name="TreasureSpawnpoint" type="Marker3D" parent="." unique_id=37510323]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.046194, -0.122927904)
+
+[node name="Grind" type="AudioStreamPlayer3D" parent="." unique_id=1731735068]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8802036, -0.11333889)
+stream = ExtResource("5_mfg8j")
+volume_db = -25.0

@@ -5,7 +5,6 @@ extends CanvasLayer
 @onready var inventory_list: VBoxContainer = $HUD_Control/InventoryList
 @onready var dollars_label = $HUD_Control/DollarsLabel
 @onready var death_screen = $Death_Control/DeathScreen
-@onready var death_label = $Death_Control/DeathLabel
 @onready var interact_label: Label = $HUD_Control/InteractLabel
 var current_interact_text = ""
 @onready var fade: ColorRect = $Transition/Fade
@@ -16,7 +15,6 @@ signal death_fade_finished
 
 func _ready():
 	death_screen.visible = false
-	death_label.modulate.a = 0.0
 	interact_label.modulate.a = 0.0
 	interact_label.visible = false
 	dollars_label.text = "0 $"
@@ -75,16 +73,13 @@ func remove_last_of(treasure_name: String):
 
 func show_death():
 	death_screen.visible = true
-	death_label.modulate.a = 0.0
 	var tween = create_tween()
 	# Fade in du fond noir
 	tween.tween_property(death_screen, "color:a", 1.0, 1.0)
-	tween.tween_property(death_label, "modulate:a", 1.0, 0.5)
 	tween.tween_interval(2.0)
 	
 func hide_death():
 	var tween = create_tween()
-	tween.tween_property(death_label, "modulate:a", 0.0, 2.0)
 	tween.tween_property(death_screen, "color:a", 0.0, 1.0)
 	tween.tween_callback(func(): 
 		death_screen.visible = false

@@ -5,7 +5,7 @@ var chase_speed: float = 4.0
 var player = null
 var cinematic_mode: bool = false
 
-@onready var audio = $AudioStreamPlayer3D  # ton audio qui loop
+@onready var audio = $AudioStreamPlayer3D
 
 func _ready():
 	add_to_group("ghost")
