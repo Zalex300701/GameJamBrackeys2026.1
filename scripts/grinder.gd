@@ -15,7 +15,7 @@ func interact(player):
 	player.grind_all()
 
 func get_interact_text() -> String:
-	return "[E] Broyer les trésors"
+	return "[E] Grind findings"
 
 func spawn_and_grind_treasure(treasure_data: TreasureData):
 	if treasure_data.scene_3d:

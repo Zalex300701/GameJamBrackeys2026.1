@@ -71,7 +71,10 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_kxbr1")
 
-[node name="PC" type="Node3D" unique_id=1837214192 groups=["pc"]]
+[sub_resource type="BoxShape3D" id="BoxShape3D_2wdt7"]
+size = Vector3(1, 1.7016602, 1)
+
+[node name="PC" type="StaticBody3D" unique_id=798896810 groups=["pc"]]
 script = ExtResource("1_2wdt7")
 
 [node name="PC" type="MeshInstance3D" parent="." unique_id=1844401667]
@@ -91,3 +94,7 @@ vertical_alignment = 0
 autowrap_mode = 2
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=1812067734]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=635291007]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.08959961, 0)
+shape = SubResource("BoxShape3D_2wdt7")

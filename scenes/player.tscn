@@ -4,6 +4,7 @@
 [ext_resource type="Material" uid="uid://b8x07pqimxat8" path="res://assets/materials/player_material.tres" id="2_qhqgy"]
 [ext_resource type="PackedScene" uid="uid://byq2wbk5ft35p" path="res://scenes/detector.tscn" id="3_qhqgy"]
 [ext_resource type="PackedScene" uid="uid://dbj18dixnkp24" path="res://scenes/pause_menu.tscn" id="4_dqkch"]
+[ext_resource type="AudioStream" uid="uid://be4wvl80huoiu" path="res://assets/sounds/dig.ogg" id="5_qlg0r"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_u8vuu"]
 
@@ -71,6 +72,9 @@ transform = Transform3D(-0.021868257, 0, -0.11799058, 0, 0.12, 0, 0.11799058, 0,
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 update_rotation = false
 update_scale = false
+
+[node name="dig" type="AudioStreamPlayer" parent="Player_CharacterBody3D" unique_id=1592702099]
+stream = ExtResource("5_qlg0r")
 
 [node name="DustParticles" type="GPUParticles3D" parent="." unique_id=1104111216]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)

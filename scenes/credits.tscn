@@ -1,0 +1,71 @@
+[gd_scene format=3 uid="uid://csy4hfna66jnb"]
+
+[ext_resource type="Theme" uid="uid://bogi18efs11xq" path="res://assets/dispensable_theme.tres" id="1_0bpdh"]
+[ext_resource type="Script" uid="uid://cq0ge6lnh8hdg" path="res://scripts/credits.gd" id="1_2ckv8"]
+
+[node name="Credits" type="Control" unique_id=1694875513]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2ckv8")
+
+[node name="Background" type="ColorRect" parent="." unique_id=533236974]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.105882354, 0.105882354, 0.12941177, 1)
+
+[node name="ThankYouLabel" type="Label" parent="." unique_id=2015195974]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -264.5
+offset_top = -22.5
+offset_right = 264.5
+offset_bottom = 22.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_0bpdh")
+theme_override_font_sizes/font_size = 50
+text = "THANK YOU FOR PLAYING"
+horizontal_alignment = 1
+
+[node name="CreditsLabel" type="Label" parent="." unique_id=1809481388]
+layout_mode = 0
+offset_left = 695.5
+offset_top = 284.5
+offset_right = 1224.5
+offset_bottom = 761.5
+theme = ExtResource("1_0bpdh")
+text = "A Game by Zalex300701
+
+Submitted for Brackeys Game Jam 2026.1
+on the theme 'Strange Places'
+
+Made with Godot 4.6"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ThanksLabel" type="Label" parent="." unique_id=1786846342]
+layout_mode = 0
+offset_left = 695.5
+offset_top = 284.5
+offset_right = 1224.5
+offset_bottom = 761.5
+theme = ExtResource("1_0bpdh")
+text = "SPECIAL THANKS
+
+Zoé O'Neill for her voice
+Alexandre Maneta for some bug fixes"
+horizontal_alignment = 1
+vertical_alignment = 1

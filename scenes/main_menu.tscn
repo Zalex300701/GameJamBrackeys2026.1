@@ -316,21 +316,21 @@ alignment = 1
 [node name="PlayButton" type="Button" parent="CanvasLayer/MenuUI/VBoxContainer" unique_id=299798177]
 layout_mode = 2
 theme = ExtResource("4_wu84c")
-theme_override_font_sizes/font_size = 100
+theme_override_font_sizes/font_size = 90
 text = "Play"
 alignment = 0
 
 [node name="OptionsButton" type="Button" parent="CanvasLayer/MenuUI/VBoxContainer" unique_id=664169230]
 layout_mode = 2
 theme = ExtResource("4_wu84c")
-theme_override_font_sizes/font_size = 100
+theme_override_font_sizes/font_size = 90
 text = "Options"
 alignment = 0
 
 [node name="QuitButton" type="Button" parent="CanvasLayer/MenuUI/VBoxContainer" unique_id=550623813]
 layout_mode = 2
 theme = ExtResource("4_wu84c")
-theme_override_font_sizes/font_size = 100
+theme_override_font_sizes/font_size = 90
 text = "Quit"
 alignment = 0
 
@@ -341,16 +341,18 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -400.0
-offset_top = -90.0
-offset_right = 399.99976
-offset_bottom = 360.0
+offset_left = -960.0
+offset_top = -200.0
+offset_right = 960.0
+offset_bottom = 880.0
 grow_horizontal = 2
+scale = Vector2(0.5, 0.5)
 pivot_offset_ratio = Vector2(0.5, 0.2)
 texture = ExtResource("9_jk1qb")
 expand_mode = 1
 
 [node name="Fade" type="ColorRect" parent="CanvasLayer/MenuUI" unique_id=1449068741]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

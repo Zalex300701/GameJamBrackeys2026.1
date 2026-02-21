@@ -127,3 +127,17 @@ func fade_to_black():
 	fade.set_anchors_preset(Control.PRESET_FULL_RECT)
 	var tween = create_tween()
 	tween.tween_property(fade, "modulate:a", 1.0, 3.0)
+
+func fade_to_black_instant():
+	var fade = ColorRect.new()
+	fade.color = Color.BLACK
+	fade.modulate.a = 0.0
+	add_child(fade)
+	fade.set_anchors_preset(Control.PRESET_FULL_RECT)
+	
+	var tween = create_tween()
+	tween.tween_property(fade, "modulate:a", 1.0, 2.0)
+
+func fade_out(duration: float = 1.0):
+	var tween = create_tween()
+	tween.tween_property($HUD_Control, "modulate:a", 0.0, duration)

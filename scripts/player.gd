@@ -39,12 +39,18 @@ var total_dollars: int = 5000
 var is_grinding: bool = false
 
 var is_dead: bool = false
-var sos_fragments: int = 0
+var sos_fragments: int = 3
 var has_beacon: bool = false
 var beacon_instance = null
 var can_pause: bool = true
 
 @onready var computer = null
+
+var beacon_preview = null
+var preview_mat_valid = preload("res://assets/materials/beacon_preview_valid.tres")
+var preview_mat_invalid = preload("res://assets/materials/beacon_preview_invalid.tres")
+
+@onready var dig: AudioStreamPlayer = $dig
 
 func _ready():
 	add_to_group("player")
@@ -136,6 +142,7 @@ func _handle_digging(delta):
 		if target:
 			target.receive_dig()
 			dig_cooldown = DIG_COOLDOWN
+			dig.play()
 
 func add_inventory_item(treasure: TreasureData):
 	inventory_items.append(treasure)
@@ -216,7 +223,7 @@ func grind_all():
 	
 	if items_to_grind.is_empty():
 		is_grinding = false
-		print("Rien à broyer !")
+		print("Nothing to grind")
 		return
 	
 	inventory_items = inventory_items.filter(func(i): return i.is_sos_fragment)
@@ -261,30 +268,51 @@ func give_beacon():
 	var station = get_tree().get_first_node_in_group("sos_station")
 	if station:
 		var tween = create_tween()
-		tween.tween_property(station, "modulate:a", 0.0, 1.0)
 		tween.tween_callback(station.queue_free)
+	
+	# Preview
+	beacon_preview = preload("res://assets/models/props/sos_beacon.glb").instantiate()
+	get_parent().add_child(beacon_preview)
+
+	# Applique le matériau vert par défaut
+	_apply_preview_material(preview_mat_invalid)
 	
 	# Instancie un modèle 3D de balise dans les mains
 	beacon_instance = preload("res://assets/models/props/sos_beacon.glb").instantiate()
 	$Player_Head/Player_Camera3D.add_child(beacon_instance)
 	beacon_instance.position = Vector3(0.3, -0.5, -0.5)
 
+func _apply_preview_material(mat: Material):
+	for child in beacon_preview.get_children():
+		if child is MeshInstance3D:
+			for i in range(child.mesh.get_surface_count()):
+				child.set_surface_override_material(i, mat)
+
 func _handle_beacon_placement():
-	if not has_beacon:
+	if not has_beacon or not beacon_preview:
 		return
 	
 	var shelter = get_tree().get_first_node_in_group("shelter")
 	if not shelter:
 		return
 	
+	var preview_pos = global_position + head.transform.basis.z * -2.0
+	preview_pos.y = 0
+	beacon_preview.global_position = preview_pos
+	
+	# Vérifie la distance
 	var distance = global_position.distance_to(shelter.global_position)
-	if distance < 5.0:
-		hud.show_interact_prompt("Eloignez-vous du shelter!")
-		return
+	var can_place = distance >= 15.0
 	
-	hud.show_interact_prompt("[E] Place SOS Beacon")
+	# Change le matériau
+	if can_place:
+		_apply_preview_material(preview_mat_valid)
+		hud.show_interact_prompt("[E] Place SOS Beacon")
+	else:
+		_apply_preview_material(preview_mat_invalid)
+		hud.hide_interact_prompt()
 	
-	if Input.is_action_just_pressed("interact"):
+	if Input.is_action_just_pressed("interact") and can_place:
 		_place_beacon()
 
 func _place_beacon():
