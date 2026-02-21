@@ -75,7 +75,7 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_p2jih")
 
-[node name="SOSBeaconStation" type="StaticBody3D" unique_id=1878223604]
+[node name="SOSBeaconStation" type="StaticBody3D" unique_id=1878223604 groups=["sos_station"]]
 script = ExtResource("1_asvrg")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=77776980]

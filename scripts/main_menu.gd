@@ -3,8 +3,11 @@ extends Node
 @onready var play_btn = $CanvasLayer/MenuUI/VBoxContainer/PlayButton
 @onready var options_btn = $CanvasLayer/MenuUI/VBoxContainer/OptionsButton
 @onready var quit_btn = $CanvasLayer/MenuUI/VBoxContainer/QuitButton
+@onready var fade: ColorRect = $CanvasLayer/MenuUI/Fade
 
 func _ready():
+	fade.modulate.a = 0.0
+	
 	# Lance la musique d'ambiance
 	AudioManager.play_ambient(preload("res://assets/sounds/ambience_alien_planet.ogg"))
 
@@ -22,12 +25,6 @@ func _on_play():
 	# AudioManager.play_sfx(preload("res://sounds/button_click.ogg"))
 
 	# Fade to black optionnel
-	var fade = ColorRect.new()
-	fade.color = Color.BLACK
-	fade.modulate.a = 0.0
-	$CanvasLayer.add_child(fade)
-	fade.set_anchors_preset(Control.PRESET_FULL_RECT)
-
 	var tween = create_tween()
 	tween.tween_property(fade, "modulate:a", 1.0, 0.5)
 	await tween.finished

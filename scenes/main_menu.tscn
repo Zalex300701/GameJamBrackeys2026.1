@@ -336,7 +336,7 @@ alignment = 0
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="CanvasLayer/MenuUI" unique_id=2012801505]
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/MenuUI" unique_id=1114108252]
+[node name="Logo" type="TextureRect" parent="CanvasLayer/MenuUI" unique_id=1114108252]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -349,5 +349,15 @@ grow_horizontal = 2
 pivot_offset_ratio = Vector2(0.5, 0.2)
 texture = ExtResource("9_jk1qb")
 expand_mode = 1
+
+[node name="Fade" type="ColorRect" parent="CanvasLayer/MenuUI" unique_id=1449068741]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.10652847, 0.1041277, 0.13069862, 1)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=22383836]

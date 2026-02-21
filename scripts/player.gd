@@ -255,9 +255,15 @@ func _respawn():
 func give_beacon():
 	has_beacon = true
 	sos_fragments = 0
-	hud.show_beacon_held()
 	detector.visible = false
-
+	
+	# Fait disparaître la station de construction
+	var station = get_tree().get_first_node_in_group("sos_station")
+	if station:
+		var tween = create_tween()
+		tween.tween_property(station, "modulate:a", 0.0, 1.0)
+		tween.tween_callback(station.queue_free)
+	
 	# Instancie un modèle 3D de balise dans les mains
 	beacon_instance = preload("res://assets/models/props/sos_beacon.glb").instantiate()
 	$Player_Head/Player_Camera3D.add_child(beacon_instance)
@@ -276,7 +282,7 @@ func _handle_beacon_placement():
 		hud.show_interact_prompt("Eloignez-vous du shelter!")
 		return
 	
-	hud.show_interact_prompt("[E] Poser la balise")
+	hud.show_interact_prompt("[E] Place SOS Beacon")
 	
 	if Input.is_action_just_pressed("interact"):
 		_place_beacon()
@@ -291,5 +297,3 @@ func _place_beacon():
 	var pos = global_position + head.transform.basis.z * -2.0  # 2m devant
 	pos.y = 0
 	beacon_world.global_position = pos
-	
-	hud.hide_beacon_held()
