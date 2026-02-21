@@ -15,7 +15,7 @@ seed = 13
 frequency = 0.005
 fractal_gain = 0.02
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_1xlfd"]
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_pwmv5"]
 noise = SubResource("FastNoiseLite_vtmdq")
 seamless = true
 
@@ -25,7 +25,7 @@ frequency = 0.0026
 offset = Vector3(-528.2, -637.66, 0)
 fractal_weighted_strength = 1.0
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_u7iqn"]
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_uklxo"]
 noise = SubResource("FastNoiseLite_1xlfd")
 seamless = true
 
@@ -34,15 +34,15 @@ seed = 12
 frequency = 0.02
 fractal_gain = 0.0
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_g7rj4"]
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_3472k"]
 noise = SubResource("FastNoiseLite_u7iqn")
 seamless = true
 seamless_blend_skirt = 1.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_gjpke"]
 shader = ExtResource("1_vtmdq")
-shader_parameter/cloud_shape_sampler = SubResource("NoiseTexture2D_u7iqn")
-shader_parameter/cloud_noise_sampler = SubResource("NoiseTexture2D_1xlfd")
+shader_parameter/cloud_shape_sampler = SubResource("NoiseTexture2D_uklxo")
+shader_parameter/cloud_noise_sampler = SubResource("NoiseTexture2D_pwmv5")
 shader_parameter/clouds_samples = 16
 shader_parameter/shadow_sample = 4
 shader_parameter/clouds_density = 0.60000000894072
@@ -50,7 +50,7 @@ shader_parameter/clouds_scale = 1.0000000074506
 shader_parameter/clouds_smoothness = 0.06999999843536
 shader_parameter/clouds_light_color = Color(0.079257585, 0.10745456, 0.13413152, 1)
 shader_parameter/clouds_shadow_intensity = 1.5000000223518
-shader_parameter/high_clouds_sampler = SubResource("NoiseTexture2D_g7rj4")
+shader_parameter/high_clouds_sampler = SubResource("NoiseTexture2D_3472k")
 shader_parameter/high_clouds_density = 0.5000000074506
 shader_parameter/top_color = Color(0, 0, 0, 1)
 shader_parameter/bottom_color = Color(0.018744752, 0.034906257, 0.05114857, 1)
@@ -62,12 +62,12 @@ shader_parameter/stars_intensity = 1.0000000149012
 shader_parameter/shooting_stars_intensity = 0.0
 shader_parameter/shooting_star_tint = Color(0, 0, 0, 1)
 
-[sub_resource type="Sky" id="Sky_vtmdq"]
+[sub_resource type="Sky" id="Sky_qc2vf"]
 sky_material = SubResource("ShaderMaterial_gjpke")
 
 [sub_resource type="Environment" id="Environment_1xlfd"]
 background_mode = 2
-sky = SubResource("Sky_vtmdq")
+sky = SubResource("Sky_qc2vf")
 tonemap_mode = 2
 glow_enabled = true
 fog_light_color = Color(0.09486606, 0.10728266, 0.12660342, 1)

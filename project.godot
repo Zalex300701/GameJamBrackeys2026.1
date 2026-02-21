@@ -11,15 +11,22 @@ config_version=5
 [application]
 
 config/name="Game Jam Brackeys 2026.1"
-run/main_scene="uid://bwnqf5o87fsu7"
+run/main_scene="uid://d3b4cqaqyoa3v"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
+
+[audio]
+
+buses/default_bus_layout="uid://2fyfbokhj3eg"
+
+[autoload]
+
+AudioManager="*uid://m2h8fqjtbgpi"
 
 [display]
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
-window/size/mode=3
 window/vsync/vsync_mode=2
 
 [file_customization]
