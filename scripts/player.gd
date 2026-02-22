@@ -35,11 +35,11 @@ var dig_cooldown: float = 0.0
 const DIG_COOLDOWN: float = 0.3
 
 # Grinding
-var total_dollars: int = 5000
+var total_dollars: int = 0
 var is_grinding: bool = false
 
 var is_dead: bool = false
-var sos_fragments: int = 3
+var sos_fragments: int = 0
 var has_beacon: bool = false
 var beacon_instance = null
 var can_pause: bool = true

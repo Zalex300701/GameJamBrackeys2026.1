@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="TreasureData" format=3 uid="uid://vlsycm57d0yn"]
+
+[ext_resource type="Texture2D" uid="uid://xyi1ybpx71ry" path="res://assets/icons/treasures/cheese_icon.png" id="1_n1t0y"]
+[ext_resource type="PackedScene" uid="uid://d27ajtu6p64ul" path="res://assets/models/treasures/cheese.glb" id="2_naehd"]
+[ext_resource type="Script" uid="uid://bl4wsg8gsbb6e" path="res://scripts/treasure_data.gd" id="3_kgar6"]
+
+[resource]
+script = ExtResource("3_kgar6")
+treasure_name = "Cheese"
+scene_3d = ExtResource("2_naehd")
+icon = ExtResource("1_n1t0y")
+value = 60
+digs_required = 6
+required_detector_level = 2
+metadata/_custom_type_script = "uid://bl4wsg8gsbb6e"

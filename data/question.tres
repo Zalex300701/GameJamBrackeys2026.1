@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="TreasureData" format=3 uid="uid://bvb84vtwklqtw"]
+
+[ext_resource type="Texture2D" uid="uid://bydxmi5cakf63" path="res://assets/icons/treasures/____icon.png" id="1_gss8g"]
+[ext_resource type="PackedScene" uid="uid://7xdhn3kpyjh3" path="res://assets/models/treasures/___.glb" id="2_av5al"]
+[ext_resource type="Script" uid="uid://bl4wsg8gsbb6e" path="res://scripts/treasure_data.gd" id="3_4go1c"]
+
+[resource]
+script = ExtResource("3_4go1c")
+treasure_name = "???"
+scene_3d = ExtResource("2_av5al")
+icon = ExtResource("1_gss8g")
+value = 150
+digs_required = 3
+required_detector_level = 2
+is_ghost = true
+metadata/_custom_type_script = "uid://bl4wsg8gsbb6e"

@@ -7,7 +7,15 @@
 [ext_resource type="PackedScene" uid="uid://biw60qf5vrh6f" path="res://scenes/HUD.tscn" id="3_kv8o0"]
 [ext_resource type="PackedScene" uid="uid://gqbkxvkchysv" path="res://scenes/treasure.tscn" id="4_gjpke"]
 [ext_resource type="Resource" uid="uid://c007e1511ptm1" path="res://data/bone.tres" id="6_1xlfd"]
+[ext_resource type="Resource" uid="uid://dq5fkjgnf4qf1" path="res://data/wood_planks.tres" id="6_u7iqn"]
+[ext_resource type="Resource" uid="uid://1xtfba2ckd75" path="res://data/SOS_fragment.tres" id="6_vtmdq"]
 [ext_resource type="Resource" uid="uid://jpgkp5vjvc05" path="res://data/precious_material.tres" id="7_1xlfd"]
+[ext_resource type="Resource" uid="uid://bpmvubvqmknvw" path="res://data/white_rock.tres" id="7_g7rj4"]
+[ext_resource type="Resource" uid="uid://i3i6xr3bec7c" path="res://data/doll.tres" id="8_opprt"]
+[ext_resource type="Resource" uid="uid://dyefwiga8fegh" path="res://data/dirt.tres" id="9_34mg1"]
+[ext_resource type="Resource" uid="uid://ckww2lj4vv5xg" path="res://data/american_ball.tres" id="11_qc2vf"]
+[ext_resource type="Resource" uid="uid://vlsycm57d0yn" path="res://data/cheese.tres" id="13_ovjlh"]
+[ext_resource type="Resource" uid="uid://bvb84vtwklqtw" path="res://data/question.tres" id="14_1gv1g"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_vtmdq"]
 seed = 13
@@ -93,30 +101,124 @@ environment = SubResource("Environment_1xlfd")
 [node name="Ground" type="CSGBox3D" parent="Environment" unique_id=1203997660]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 use_collision = true
-size = Vector3(300, 1, 300)
+size = Vector3(700, 1, 700)
 material = SubResource("StandardMaterial3D_u7iqn")
 
 [node name="Shelter" parent="Environment" unique_id=1978965594 instance=ExtResource("2_ca7ef")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7508011, 0, 1.3974376)
 
-[node name="Treasure" parent="Environment" unique_id=1774547254 instance=ExtResource("4_gjpke")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.702198, -0.21, -3.019)
+[node name="lvl1_treasures" type="Node3D" parent="Environment" unique_id=1959964972]
+
+[node name="Treasure_wood_1" parent="Environment/lvl1_treasures" unique_id=1774547254 instance=ExtResource("4_gjpke")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.951996, -0.21, 0)
+data = ExtResource("6_u7iqn")
+
+[node name="Treasure_wood_2" parent="Environment/lvl1_treasures" unique_id=112068867 instance=ExtResource("4_gjpke")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.7719345, -0.21, -25.305758)
+data = ExtResource("6_u7iqn")
+
+[node name="Treasure_rock_1" parent="Environment/lvl1_treasures" unique_id=1812455181 instance=ExtResource("4_gjpke")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.760014, -0.21, 2.5038662)
+data = ExtResource("7_g7rj4")
+
+[node name="Treasure_rock_2" parent="Environment/lvl1_treasures" unique_id=309041059 instance=ExtResource("4_gjpke")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.403925, -0.21, 18.987669)
+data = ExtResource("7_g7rj4")
+
+[node name="Treasure_precious_1" parent="Environment/lvl1_treasures" unique_id=1998190363 instance=ExtResource("4_gjpke")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.716961, -0.21, -30.324867)
+data = ExtResource("7_1xlfd")
+
+[node name="Treasure_precious_2" parent="Environment/lvl1_treasures" unique_id=70445497 instance=ExtResource("4_gjpke")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.901318, -0.21, 27.233597)
+data = ExtResource("7_1xlfd")
+
+[node name="Treasure_dirt_1" parent="Environment/lvl1_treasures" unique_id=185234909 instance=ExtResource("4_gjpke")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.948437, -0.21, -19.616306)
+data = ExtResource("9_34mg1")
+
+[node name="Treasure_dirt_2" parent="Environment/lvl1_treasures" unique_id=147249866 instance=ExtResource("4_gjpke")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.097717, -0.21, 22.770128)
+data = ExtResource("9_34mg1")
+
+[node name="Treasure_dirt_3" parent="Environment/lvl1_treasures" unique_id=1238947473 instance=ExtResource("4_gjpke")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.414707, -0.21, -20.589806)
+data = ExtResource("9_34mg1")
+
+[node name="lvl2_treasures" type="Node3D" parent="Environment" unique_id=893612246]
+
+[node name="Treasure_bone_1" parent="Environment/lvl2_treasures" unique_id=1414976521 instance=ExtResource("4_gjpke")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38.444164, -0.21, -14.031057)
 data = ExtResource("6_1xlfd")
 
-[node name="Treasure2" parent="Environment" unique_id=1416451101 instance=ExtResource("4_gjpke")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.702198, -0.21, 1.499475)
+[node name="Treasure_bone_2" parent="Environment/lvl2_treasures" unique_id=358334383 instance=ExtResource("4_gjpke")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 41.62391, -0.21, -9.964102)
 data = ExtResource("6_1xlfd")
 
-[node name="Treasure3" parent="Environment" unique_id=1346559640 instance=ExtResource("4_gjpke")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.236131, -0.21, -6.1880484)
-data = ExtResource("7_1xlfd")
+[node name="Treasure_bone_3" parent="Environment/lvl2_treasures" unique_id=1623153542 instance=ExtResource("4_gjpke")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.3834724, -0.21, 40.872787)
+data = ExtResource("6_1xlfd")
 
-[node name="Treasure4" parent="Environment" unique_id=374062735 instance=ExtResource("4_gjpke")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.236131, -0.21, -1.6695735)
-data = ExtResource("7_1xlfd")
+[node name="Treasure_american_1" parent="Environment/lvl2_treasures" unique_id=757025714 instance=ExtResource("4_gjpke")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.056072, -0.21, 42.143715)
+data = ExtResource("11_qc2vf")
 
-[node name="Treasure5" parent="Environment" unique_id=1308615564 instance=ExtResource("4_gjpke")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.236131, -0.21, 2.9727585)
-data = ExtResource("7_1xlfd")
+[node name="Treasure_american_2" parent="Environment/lvl2_treasures" unique_id=957105143 instance=ExtResource("4_gjpke")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42.132305, -0.21, 21.30061)
+data = ExtResource("11_qc2vf")
+
+[node name="Treasure_american_3" parent="Environment/lvl2_treasures" unique_id=619427818 instance=ExtResource("4_gjpke")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.397057, -0.21, -38.94109)
+data = ExtResource("11_qc2vf")
+
+[node name="Treasure_doll_1" parent="Environment/lvl2_treasures" unique_id=1187803911 instance=ExtResource("4_gjpke")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -46.83224, -0.21, 11.895769)
+data = ExtResource("8_opprt")
+
+[node name="Treasure_doll_2" parent="Environment/lvl2_treasures" unique_id=1660025847 instance=ExtResource("4_gjpke")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.25571, -0.21, 49.260887)
+data = ExtResource("8_opprt")
+
+[node name="Treasure_doll_3" parent="Environment/lvl2_treasures" unique_id=940908146 instance=ExtResource("4_gjpke")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.79755, -0.21, -43.008057)
+data = ExtResource("8_opprt")
+
+[node name="Treasure_cheese_1" parent="Environment/lvl2_treasures" unique_id=1586320819 instance=ExtResource("4_gjpke")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 45.945072, -0.21, -28.265358)
+data = ExtResource("13_ovjlh")
+
+[node name="Treasure_cheese_2" parent="Environment/lvl2_treasures" unique_id=1319968229 instance=ExtResource("4_gjpke")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.607162, -0.21, 36.043293)
+data = ExtResource("13_ovjlh")
+
+[node name="Treasure_cheese_3" parent="Environment/lvl2_treasures" unique_id=303124840 instance=ExtResource("4_gjpke")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -43.019516, -0.21, 25.367542)
+data = ExtResource("13_ovjlh")
+
+[node name="Treasure_question_1" parent="Environment/lvl2_treasures" unique_id=1386916613 instance=ExtResource("4_gjpke")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36.046005, -0.21, -29.766764)
+data = ExtResource("14_1gv1g")
+
+[node name="Treasure_question_2" parent="Environment/lvl2_treasures" unique_id=907589608 instance=ExtResource("4_gjpke")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5246887, -0.21, 51.736115)
+data = ExtResource("14_1gv1g")
+
+[node name="Treasure_question_3" parent="Environment/lvl2_treasures" unique_id=1692448921 instance=ExtResource("4_gjpke")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 47.20023, -0.21, 4.229082)
+data = ExtResource("14_1gv1g")
+
+[node name="lvl3_treasures" type="Node3D" parent="Environment" unique_id=415774953]
+
+[node name="Treasure" parent="Environment/lvl3_treasures" unique_id=1766148125 instance=ExtResource("4_gjpke")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -105, -0.21, 0)
+data = ExtResource("6_vtmdq")
+
+[node name="Treasure2" parent="Environment/lvl3_treasures" unique_id=340653110 instance=ExtResource("4_gjpke")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 92.25288, -0.21, -56.03579)
+data = ExtResource("6_vtmdq")
+
+[node name="Treasure3" parent="Environment/lvl3_treasures" unique_id=218519210 instance=ExtResource("4_gjpke")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.57688, -0.21, 90.77992)
+data = ExtResource("6_vtmdq")
 
 [node name="HUD" parent="." unique_id=282066520 instance=ExtResource("3_kv8o0")]
