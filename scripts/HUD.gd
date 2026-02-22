@@ -55,6 +55,7 @@ func add_to_list_item(treasure: TreasureData):
 		item.add_child(label)
 		inventory_list.add_child(item)
 		hud_items[treasure.treasure_name] = {
+			"data": treasure,
 			"hbox": item,
 			"label": label,
 			"count": 1
@@ -70,6 +71,15 @@ func remove_last_of(treasure_name: String):
 	else:
 		remove_inventory_item(entry.hbox)
 		hud_items.erase(treasure_name)
+
+func clear_non_fragment_items():
+	var items_to_remove = []
+	for item_name in hud_items.keys():
+		var item_entry = hud_items[item_name]
+		if not item_entry.data.is_sos_fragment:
+			items_to_remove.append(item_name)
+	for item_name in items_to_remove:
+		remove_last_of(item_name)
 
 func show_death():
 	death_screen.visible = true

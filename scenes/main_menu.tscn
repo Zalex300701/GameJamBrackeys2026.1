@@ -362,4 +362,59 @@ grow_vertical = 2
 mouse_filter = 2
 color = Color(0.10652847, 0.1041277, 0.13069862, 1)
 
+[node name="OptionsPanel" type="Control" parent="CanvasLayer" unique_id=1113257415]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/OptionsPanel" unique_id=973417816]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 200.0
+offset_top = -372.0
+offset_right = 429.0
+offset_bottom = 372.0
+grow_vertical = 2
+theme_override_constants/separation = 15
+alignment = 1
+
+[node name="TitleLabel" type="Label" parent="CanvasLayer/OptionsPanel/VBoxContainer" unique_id=989493792]
+layout_mode = 2
+theme = ExtResource("4_wu84c")
+theme_override_font_sizes/font_size = 50
+text = "Options"
+
+[node name="Spacer" type="Control" parent="CanvasLayer/OptionsPanel/VBoxContainer" unique_id=317483765]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+
+[node name="SoundLabel" type="Label" parent="CanvasLayer/OptionsPanel/VBoxContainer" unique_id=1926043476]
+layout_mode = 2
+theme = ExtResource("4_wu84c")
+text = "Sound"
+
+[node name="SoundSlider" type="HSlider" parent="CanvasLayer/OptionsPanel/VBoxContainer" unique_id=606634916]
+layout_mode = 2
+
+[node name="FullscreenCheck" type="CheckBox" parent="CanvasLayer/OptionsPanel/VBoxContainer" unique_id=424471462]
+layout_mode = 2
+theme = ExtResource("4_wu84c")
+text = " Fullscreen"
+
+[node name="Spacer2" type="Control" parent="CanvasLayer/OptionsPanel/VBoxContainer" unique_id=1682035156]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+
+[node name="BackButton" type="Button" parent="CanvasLayer/OptionsPanel/VBoxContainer" unique_id=250241144]
+layout_mode = 2
+theme = ExtResource("4_wu84c")
+text = "Back"
+alignment = 0
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=22383836]

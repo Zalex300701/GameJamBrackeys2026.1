@@ -23,6 +23,8 @@ var gravity = 9.8
 @onready var hud = get_tree().get_first_node_in_group("hud")
 var inventory_items = []
 
+var collected_treasures: Array = []
+
 # Oxygen Module
 var oxygen: float = 100.0
 var in_shelter: bool = false
@@ -141,9 +143,12 @@ func _handle_digging(delta):
 			dig_cooldown = DIG_COOLDOWN
 			dig.play()
 
-func add_inventory_item(treasure: TreasureData):
+func add_inventory_item(treasure: TreasureData, treasure_node: Node = null):
 	inventory_items.append(treasure)
 	hud.add_to_list_item(treasure)
+	
+	if treasure_node:
+		collected_treasures.append(treasure_node)
 	
 	if treasure.is_sos_fragment:
 		sos_fragments += 1
@@ -245,6 +250,23 @@ func _die():
 
 func _respawn():
 	oxygen = 100.0
+	
+	for treasure_node in collected_treasures:
+		if treasure_node and is_instance_valid(treasure_node):
+			treasure_node.reset_treasure()
+	collected_treasures.clear()
+	
+	sos_fragments = 0
+	
+	# Vide l'inventaire (sauf fragments)
+	inventory_items = inventory_items.filter(func(i): return i.is_sos_fragment)
+	
+	inventory_items.clear()
+	
+	# Clear le HUD immédiatement
+	for item_name in hud.hud_items.keys():
+		hud.hud_items[item_name].hbox.queue_free()
+	hud.hud_items.clear()
 	
 	var shelter = get_tree().get_first_node_in_group("shelter")
 	if shelter:

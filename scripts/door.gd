@@ -11,6 +11,8 @@ var open_position: Vector3
 
 @onready var door_to_move: StaticBody3D = $Door_to_move
 
+@onready var sound: AudioStreamPlayer3D = $AudioStreamPlayer3D
+
 func _ready():
 	print("Door ready, door_mesh: ", door_to_move)
 	closed_position = door_to_move.position
@@ -33,19 +35,17 @@ func toggle():
 		_open()
 
 func _open():
-	print("Opening door...")
+	sound.play()
 	var tween = create_tween()
 	tween.tween_property(self, "position", open_position, animation_duration)
 	await tween.finished
-	print("Door opened!")
 	is_open = true
 	is_animating = false
 
 func _close():
-	print("Closing door...")
+	sound.play()
 	var tween = create_tween()
 	tween.tween_property(self, "position", closed_position, animation_duration)
 	await tween.finished
-	print("Door closed!")
 	is_open = false
 	is_animating = false

@@ -76,8 +76,15 @@ sky_material = SubResource("ShaderMaterial_gjpke")
 background_mode = 2
 sky = SubResource("Sky_qc2vf")
 tonemap_mode = 2
+tonemap_exposure = 0.9
+ssao_enabled = true
 glow_enabled = true
+glow_intensity = 1.5
+glow_bloom = 0.1
 fog_light_color = Color(0.09486606, 0.10728266, 0.12660342, 1)
+adjustment_enabled = true
+adjustment_brightness = 0.9
+adjustment_saturation = 0.8
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u7iqn"]
 albedo_texture = ExtResource("3_1xlfd")
@@ -160,7 +167,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.3834724, -0.21, 40.872787)
 data = ExtResource("6_1xlfd")
 
 [node name="Treasure_american_1" parent="Environment/lvl2_treasures" unique_id=757025714 instance=ExtResource("4_gjpke")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.056072, -0.21, 42.143715)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.778595, -0.21, 31.829037)
 data = ExtResource("11_qc2vf")
 
 [node name="Treasure_american_2" parent="Environment/lvl2_treasures" unique_id=957105143 instance=ExtResource("4_gjpke")]
@@ -168,7 +175,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42.132305, -0.21, 21.30061)
 data = ExtResource("11_qc2vf")
 
 [node name="Treasure_american_3" parent="Environment/lvl2_treasures" unique_id=619427818 instance=ExtResource("4_gjpke")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.397057, -0.21, -38.94109)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34.045803, -0.21, -30.7929)
 data = ExtResource("11_qc2vf")
 
 [node name="Treasure_doll_1" parent="Environment/lvl2_treasures" unique_id=1187803911 instance=ExtResource("4_gjpke")]
@@ -192,11 +199,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.607162, -0.21, 36.043293)
 data = ExtResource("13_ovjlh")
 
 [node name="Treasure_cheese_3" parent="Environment/lvl2_treasures" unique_id=303124840 instance=ExtResource("4_gjpke")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -43.019516, -0.21, 25.367542)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.679699, -0.21, 43.587654)
 data = ExtResource("13_ovjlh")
 
 [node name="Treasure_question_1" parent="Environment/lvl2_treasures" unique_id=1386916613 instance=ExtResource("4_gjpke")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36.046005, -0.21, -29.766764)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.794924, -0.21, -37.769585)
 data = ExtResource("14_1gv1g")
 
 [node name="Treasure_question_2" parent="Environment/lvl2_treasures" unique_id=907589608 instance=ExtResource("4_gjpke")]

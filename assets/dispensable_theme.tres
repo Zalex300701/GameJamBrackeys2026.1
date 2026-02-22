@@ -14,6 +14,8 @@
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dxt4g"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uy2ig"]
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rn3ud"]
 bg_color = Color(0.05490196, 0.06666667, 0.13333334, 0.39215687)
 border_width_left = 10
@@ -50,6 +52,9 @@ Button/styles/focus = SubResource("StyleBoxEmpty_x3e14")
 Button/styles/hover = SubResource("StyleBoxEmpty_ufo0e")
 Button/styles/normal = SubResource("StyleBoxEmpty_vbbmd")
 Button/styles/pressed = SubResource("StyleBoxEmpty_dxt4g")
+CheckBox/font_sizes/font_size = 30
+CheckBox/fonts/font = ExtResource("2_rn3ud")
+CheckBox/styles/disabled = SubResource("StyleBoxFlat_uy2ig")
 HBoxContainer/constants/separation = 20
 Label/font_sizes/font_size = 30
 Label/fonts/font = ExtResource("2_rn3ud")
